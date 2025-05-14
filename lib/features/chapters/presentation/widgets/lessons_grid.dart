@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moza/features/lessons/presentation/screens/lesson_screen.dart';
-import 'package:moza/features/topics/presentation/screens/topic_details.dart';
 import 'package:moza/placeholders/coming_soon.dart';
 import 'package:moza/features/topics/presentation/widgets/topic_tile.dart';
 

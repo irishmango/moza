@@ -5,7 +5,7 @@ import 'package:moza/features/chapters/presentation/widgets/quiz_view.dart';
 import 'package:moza/features/chapters/presentation/widgets/toggle_switch.dart';
 import 'package:moza/shared/custom_scaffold.dart';
 import 'package:moza/shared/screen_header.dart';
-import 'package:moza/features/chapters/presentation/widgets/toggle_switch.dart';
+
 
 class ChapterScreen extends StatefulWidget {
   const ChapterScreen({super.key});

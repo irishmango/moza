@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moza/features/chapters/presentation/widgets/quiz_list.dart';
-import 'package:moza/features/topics/presentation/widgets/topic_tile.dart';
-import 'package:moza/placeholders/coming_soon.dart';
-import 'package:moza/shared/header_expand.dart';
-import 'package:moza/theme.dart';
+
 
 class QuizView extends StatelessWidget {
   const QuizView({super.key});
@@ -26,7 +23,7 @@ class QuizView extends StatelessWidget {
             ],
           ),
           
-          // Quizzes available
+          
           Expanded(child: QuizList())
         
 

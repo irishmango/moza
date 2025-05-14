@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moza/features/quiz/presentation/screens/quiz_screen.dart';
-import 'package:moza/features/topics/presentation/screens/topic_details.dart';
-import 'package:moza/placeholders/coming_soon.dart';
-import 'package:moza/features/topics/presentation/widgets/topic_tile.dart';
 import 'package:moza/theme.dart';
 
 class QuizList extends StatelessWidget {

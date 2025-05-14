@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moza/shared/general_background.dart';
 import 'package:moza/shared/quiz_background.dart';
 
 class CustomScaffoldQuiz extends StatelessWidget {

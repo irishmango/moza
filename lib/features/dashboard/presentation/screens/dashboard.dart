@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moza/features/dashboard/presentation/widgets/dashboard_app_bar.dart';
 import 'package:moza/features/dashboard/presentation/widgets/learn_path_card.dart';
-import 'package:moza/placeholders/coming_soon.dart';
 import 'package:moza/shared/custom_scaffold.dart';
-import 'package:moza/shared/general_background.dart';
 import 'package:moza/shared/header_expand.dart';
-import 'package:moza/shared/xp_tile.dart';
-import 'package:moza/theme.dart';
 import 'package:moza/features/topics/presentation/screens/topics_screen.dart';
 import 'package:moza/features/topics/presentation/widgets/topics_grid.dart';
 

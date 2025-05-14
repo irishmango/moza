@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moza/features/chapters/presentation/widgets/lessons_grid.dart';
-import 'package:moza/features/topics/presentation/widgets/topic_tile.dart';
-import 'package:moza/placeholders/coming_soon.dart';
-import 'package:moza/shared/header_expand.dart';
-import 'package:moza/theme.dart';
+
 
 class LessonView extends StatelessWidget {
   const LessonView({super.key});
@@ -25,8 +22,7 @@ class LessonView extends StatelessWidget {
               ),
             ],
           ),
-          
-          // lessons available
+
           LessonsGrid()
 
         

@@ -1,16 +1,19 @@
-# moza
+🎵 Moza - Music Theory Learning App 🎵
 
-A new Flutter project.
+Moza is a Flutter-based application designed to teach music theory through interactive lessons and quizzes. The app allows users to learn core concepts such as chords, scales, and intervals while testing their knowledge with multiple-choice quizzes.
 
-## Getting Started
+⸻
 
-This project is a starting point for a Flutter application.
+    Features
+	•	Dynamic lessons with text and images.
+	•	Multiple-choice quizzes with result tracking.
+	•	Timed quizzes with dynamic time display in the results.
+	•	Custom quiz results screen with score, elapsed time, and XP points.
+	•	Structured data model with topics, chapters, lessons, and quizzes.
 
-A few resources to get you started if this is your first Flutter project:
+⸻
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    Tech Stack
+	•	Flutter (3.x) - Cross-platform development
+	•	Dart - Application logic and state management
+	•	(in development...continue later)

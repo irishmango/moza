@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^10.8.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.3
+
 
 flutter_launcher_icons:
   android: true
@@ -76,6 +78,7 @@ flutter:
     - assets/img/orange_wave_bg.png
     - assets/img/chord_example_1.png
     - assets/img/avatars/
+    - assets/icons/google_icon.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

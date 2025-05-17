@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/auth/presentation/screens/registration/registration_screen.dart';
 import 'package:moza/src/features/auth/presentation/widgets/login_card.dart';
+import 'package:moza/src/features/auth/presentation/widgets/third_party_login_button.dart';
+import 'package:moza/src/features/dashboard/presentation/screens/dashboard.dart';
+import 'package:moza/src/models/mock_database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moza/theme.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -52,10 +56,23 @@ class LoginScreen extends StatelessWidget {
                 Center(
                   child: SizedBox(
                     child: Column(
+                      spacing: 6,
                       children: [
-                        
-                        // SignInButton(Buttons.google, onPressed: () {}),
-                        // SignInButton(Buttons.apple, onPressed: () {}), 
+                        ThirdPartyLoginButton(icon: FontAwesomeIcons.google, text: "Sign in with Google", 
+                        onPressed: () {
+                          final db = MockDatabaseRepository();
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                            builder: (context) => Dashboard(db: db,)));
+                        },
+                        ),
+                        ThirdPartyLoginButton(icon: FontAwesomeIcons.apple, text: "Sign in with Apple", 
+                        onPressed: () {
+                          final db = MockDatabaseRepository();
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                            builder: (context) => Dashboard(db: db,)));
+                        },)
                       ],
                     ),
                   ),

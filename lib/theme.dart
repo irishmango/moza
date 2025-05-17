@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class AppColors {
   static Color appOrange = Color.fromRGBO(249, 172, 79, 1.0);
   static Color appOrangeAccent = Color.fromRGBO(255, 141, 0, 1.0);
@@ -15,22 +14,27 @@ class AppColors {
   static Color appGreenAccent = Color.fromRGBO(49, 124, 67, 1.0);
   static Color appWhite = Color.fromRGBO(250, 250, 250, 1.0);
   static Color textColor = Color.fromRGBO(31, 30, 30, 1.0);
-
 }
 
 ThemeData primaryTheme = ThemeData(
+  colorScheme: ColorScheme.fromSeed(seedColor: AppColors.appOrange),
 
-
-  // seed
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: AppColors.appOrange),
-
-  // Input decoration
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
-    fillColor: Colors.grey.withAlpha(127),
-    border: InputBorder.none,
-    labelStyle: TextStyle(color: AppColors.textColor),
-    prefixIconColor: AppColors.textColor
+    fillColor: AppColors.appLightBlue.withAlpha(76),
+    contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide(color: AppColors.appOrange, width: 1.5),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide(color: AppColors.appOrange, width: 2.0),
+    ),
+    labelStyle: TextStyle(
+      color: AppColors.textColor,
+      fontWeight: FontWeight.w500,
+    ),
+    prefixIconColor: AppColors.textColor,
   ),
 );

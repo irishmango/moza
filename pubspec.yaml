@@ -39,6 +39,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/moza_main_icon_ios.png"
+  android_adaptive_icon:
+    background: "#3C79D0" 
+    foreground: "assets/icons/app_icon_foreground.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -66,6 +75,7 @@ flutter:
     - assets/img/moza_logo_yellow.png
     - assets/img/orange_wave_bg.png
     - assets/img/chord_example_1.png
+    - assets/img/avatars/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

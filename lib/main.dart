@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moza/src/app.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/models/mock_database_repository.dart';
+import 'package:moza/src/shared/custom_scaffold.dart';
 
 
 void main() {
@@ -19,14 +20,8 @@ class Sandbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Sandbox"),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text("Text")
-      ),
+    return CustomScaffold(
+      body: Text("Sandbox"),
     );
   }
 }

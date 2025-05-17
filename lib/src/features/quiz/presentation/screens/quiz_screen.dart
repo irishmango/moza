@@ -63,7 +63,10 @@ class _QuizScreenState extends State<QuizScreen> {
         child: Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
-            ProgressBar(),
+            HeadingWithProgressBar(
+              currentIndex: currentQuestionIndex,
+              total: widget.quiz.questions.length,
+            ),
             SizedBox(height: 16,),
 
             Container(

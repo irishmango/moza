@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:moza/src/features/quiz/presentation/widgets/progress_bar.dart';
 import 'package:moza/theme.dart';
 
-class ProgressBar extends StatelessWidget {
-  const ProgressBar({super.key});
+class HeadingWithProgressBar extends StatelessWidget {
+  final int currentIndex;
+  final int total;
+
+  const HeadingWithProgressBar({
+    required this.currentIndex,
+    required this.total,
+    super.key,
+  });
 
   void _showExitDialog(BuildContext context) {
     showDialog(
@@ -15,14 +23,14 @@ class ProgressBar extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(dialogContext); 
+                Navigator.pop(dialogContext);
               },
               child: const Text("Stay"),
             ),
             TextButton(
               onPressed: () {
-                Navigator.pop(dialogContext); 
-                Navigator.pop(context); 
+                Navigator.pop(dialogContext);
+                Navigator.pop(context);
               },
               child: const Text(
                 "Exit",
@@ -39,55 +47,25 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // First Container: Icon
         Expanded(
           flex: 1,
           child: Align(
             alignment: Alignment.centerLeft,
             child: IconButton(
               padding: EdgeInsets.zero,
-              onPressed: () {
-                _showExitDialog(context);
-              },
+              onPressed: () => _showExitDialog(context),
               icon: const Icon(Icons.close, size: 40),
             ),
           ),
         ),
-
-        // Second Container: Progress Bar
         Expanded(
           flex: 4,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: 240,
-                height: 16,
-                decoration: BoxDecoration(
-                  color: AppColors.appOrange.withAlpha(85),
-                  borderRadius: BorderRadius.circular(22),
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  width: 50,
-                  height: 16,
-                  decoration: BoxDecoration(
-                    color: AppColors.appOrange,
-                    borderRadius: BorderRadius.circular(22),
-                  ),
-                ),
-              ),
-            ],
+          child: ProgressBar(
+            currentIndex: currentIndex,
+            total: total,
           ),
         ),
-
-        // Third Container: Empty 
-        const Expanded(
-          flex: 1,
-          child: SizedBox(),
-        ),
+        const Expanded(flex: 1, child: SizedBox()),
       ],
     );
   }

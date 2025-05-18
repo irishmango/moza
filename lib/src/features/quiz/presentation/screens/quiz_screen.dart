@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:moza/src/features/quiz/domain/dummy_quiz.dart';
 import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/presentation/screens/quiz_results_screen.dart';
 import 'package:moza/src/features/quiz/presentation/widgets/heading_w_progress_bar.dart';

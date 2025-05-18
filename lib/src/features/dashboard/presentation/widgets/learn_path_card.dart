@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/shared/open_card_button.dart';
+import 'package:moza/theme.dart';
 
 class LearnPathCard extends StatelessWidget {
   const LearnPathCard({super.key});
@@ -89,16 +90,34 @@ class LearnPathCard extends StatelessWidget {
                     ),
                   ),
 
-                  // Placeholder icon(ask a Tut for help with progress icon?)
+                 
                   Container(
-                    width: 44,
-                    height: 44,
-                    decoration: const BoxDecoration(
-                      color: Colors.orangeAccent,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Center(
-                      child: Icon(Icons.check, color: Colors.white),
+                    width: 50,  
+                    height: 50,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        SizedBox(
+                          width: 50, 
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            strokeCap: StrokeCap.round,
+                            value: 0.6,
+                            strokeWidth: 5, 
+                            backgroundColor: Colors.transparent,
+                            valueColor: AlwaysStoppedAnimation<Color>(AppColors.appOrange),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            "60%",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   )
                 ],
@@ -110,4 +129,3 @@ class LearnPathCard extends StatelessWidget {
     );
   }
 }
-

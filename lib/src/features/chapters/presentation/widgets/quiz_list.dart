@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moza/placeholders/coming_soon.dart';
 import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/presentation/screens/quiz_screen.dart';
 import 'package:moza/theme.dart';

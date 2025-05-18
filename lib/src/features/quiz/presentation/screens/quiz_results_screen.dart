@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moza/placeholders/coming_soon.dart';
-import 'package:moza/src/features/chapters/domain/chapter.dart';
-import 'package:moza/src/features/chapters/presentation/screens/chapter_screen.dart';
-import 'package:moza/src/features/lessons/presentation/screens/lesson_screen.dart';
 import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/presentation/screens/quiz_screen.dart';
 import 'package:moza/src/features/quiz/presentation/widgets/quiz_main_button.dart';
-import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold_quiz.dart';
 import 'package:moza/theme.dart';
 

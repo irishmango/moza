@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+  
 class AppColors {
   static Color appOrange = Color.fromRGBO(249, 172, 79, 1.0);
   static Color appOrangeAccent = Color.fromRGBO(255, 141, 0, 1.0);

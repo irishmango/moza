@@ -9,10 +9,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moza/theme.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final db = MockDatabaseRepository();
     return CustomScaffold(
       body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -60,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         ThirdPartyLoginButton(icon: FontAwesomeIcons.google, text: "Sign in with Google", 
                         onPressed: () {
-                          final db = MockDatabaseRepository();
+                          
                           Navigator.of(context).push(
                             MaterialPageRoute(
                             builder: (context) => Dashboard(db: db,)));
@@ -68,7 +70,6 @@ class LoginScreen extends StatelessWidget {
                         ),
                         ThirdPartyLoginButton(icon: FontAwesomeIcons.apple, text: "Sign in with Apple", 
                         onPressed: () {
-                          final db = MockDatabaseRepository();
                           Navigator.of(context).push(
                             MaterialPageRoute(
                             builder: (context) => Dashboard(db: db,)));

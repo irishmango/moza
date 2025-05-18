@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/quiz/presentation/widgets/progress_bar.dart';
-import 'package:moza/theme.dart';
 
 class HeadingWithProgressBar extends StatelessWidget {
   final int currentIndex;

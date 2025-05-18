@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/chapters/domain/chapter.dart';
-import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/open_card_button.dart';
 import 'package:moza/theme.dart';
 

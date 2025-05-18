@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moza/theme.dart';
 
 class ThirdPartyLoginButton extends StatelessWidget {
   final IconData icon;

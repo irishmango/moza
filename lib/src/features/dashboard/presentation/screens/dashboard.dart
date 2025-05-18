@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/dashboard_app_bar.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/learn_path_card.dart';
+import 'package:moza/src/features/dashboard/presentation/widgets/quiz_time_card.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/header_expand.dart';
@@ -22,19 +23,32 @@ class Dashboard extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              DashboardAppBar(),
-              SizedBox(height: 24,),
-              LearnPathCard(),
-              SizedBox(height: 20,),
-
-              HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
-
-              TopicsGrid(limit: 4, scrollable: false, db: db,)
-        
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                DashboardAppBar(),
+                SizedBox(height: 24,),
+                LearnPathCard(),
+                SizedBox(height: 20,),
+            
+                HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
+            
+                TopicsGrid(limit: 4, scrollable: false, db: db,),
+                Align(
+                  alignment: Alignment.centerLeft,
+                    child: Text('Improvement Area',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                SizedBox(height: 8,),
+                QuizTimeCard()
+                    
+              ],
+            ),
           ),
         ),
       ),

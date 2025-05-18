@@ -130,7 +130,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (ctx) => const LoginScreen()),
+                      MaterialPageRoute(builder: (ctx) => LoginScreen()),
                     );
                   },
                   child: RichText(

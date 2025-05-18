@@ -46,7 +46,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
               const SizedBox(height: 16),
       
               // Title Card
-              ChapterTitleCard(db: widget.db, chapter: chapter,),
+              ChapterTitleCard(db: widget.db, chapter: chapter),
               const SizedBox(height: 32),
       
               // Toggle Switch
@@ -60,7 +60,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
               Expanded(
                 child: _selectedMode == Mode.lesson 
                   ? LessonView(lessons: lessons) 
-                  : QuizView(quizzes: quizzes,),
+                  : QuizView(quizzes: quizzes),
               ),
             ],
           ),

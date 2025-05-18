@@ -34,7 +34,7 @@ class ScreenHeader extends StatelessWidget {
     
         // Second Container: Title (Centered)
         Expanded(
-          flex: 3,
+          flex: 8,
           child: Center(
             child: Text(
               title,

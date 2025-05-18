@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/profile/presentation/widgets/badges_grid.dart';
+import 'package:moza/src/features/settings/presentation/screens/settings_screen.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/screen_header.dart';
 import 'package:moza/src/shared/xp_tile.dart';
@@ -17,7 +18,9 @@ class ProfileScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ScreenHeader(title: "Profile", trailingIcon: Icons.settings,),
+                ScreenHeader(title: "Profile", trailingIcon: Icons.settings, onTrailingIconPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx) => SettingsScreen()));
+                },),
                 SizedBox(height: 6),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,22 +28,6 @@ class ProfileScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 71,
                       backgroundImage: AssetImage('assets/img/avatar_profile.png'),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.camera_alt,
-                            size: 18,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
                     ),
                     SizedBox(height: 16),
                     Text(

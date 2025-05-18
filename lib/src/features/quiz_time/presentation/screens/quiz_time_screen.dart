@@ -156,6 +156,7 @@ class _QuizTimeScreenState extends State<QuizTimeScreen> {
                   ),
 
                   const SizedBox(height: 30),
+                  
 
                   ElevatedButton(
                     onPressed: _spinWheel,
@@ -163,15 +164,17 @@ class _QuizTimeScreenState extends State<QuizTimeScreen> {
                       backgroundColor: Colors.purple,
                       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 14),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(46),
                       ),
+                      elevation: 2,
+                      shadowColor: const Color(0x3F563307), 
                     ),
                     child: const Text(
                       "Spin!",
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white, 
                       ),
                     ),
                   ),
@@ -180,7 +183,7 @@ class _QuizTimeScreenState extends State<QuizTimeScreen> {
             ),
           ),
 
-          // Spinnable Wheel
+          // Wheel
           Positioned(
             bottom: -screenHeight * 0.3,
             left: -screenHeight * 0.1,

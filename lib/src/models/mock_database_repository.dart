@@ -237,6 +237,8 @@ class MockDatabaseRepository implements DatabaseRepository {
         ],
       ),
 
+      
+
       Topic(
         id: "topic3",
         title: "Intervals",
@@ -250,7 +252,10 @@ class MockDatabaseRepository implements DatabaseRepository {
                 id: "lesson1",
                 title: "What is an Interval?",
                 content: [
-                  LessonContent(type: "text", data: "An interval is the distance between two notes.", order: 1),
+                  LessonContent(type: "text", data: "An interval is the distance between two notes — for example, from C to D or C to G. Intervals are one of the most important building blocks in music theory.", order: 1),
+                  LessonContent(type: "text", data: "Intervals are measured by counting both the starting and ending note. For example, C to E includes C – D – E = a third (3rd).", order: 2),
+                  LessonContent(type: "image", data: "assets/img/intervals/basic_intervals_1.png", order: 3),
+                  LessonContent(type: "text", data: "Intervals are described using two elements:\n• Quantity: the number (2nd, 3rd, 4th…)\n• Quality: major, minor, perfect, augmented, or diminished", order: 4)
                 ],
               ),
             ],
@@ -260,6 +265,45 @@ class MockDatabaseRepository implements DatabaseRepository {
                 title: "Interval Quiz",
                 questions: [
                   Question(question: "What is a minor 3rd?", options: ["2 semitones", "3 semitones", "4 semitones", "5 semitones"], correctAnswerIndex: 1),
+                  Question(question: "What is a major 2nd?", options: ["1 semitone", "2 semitones", "3 semitones", "4 semitones"], correctAnswerIndex: 1),
+                  Question(question: "How many semitones are in a perfect 4th?", options: ["3", "4", "5", "6"], correctAnswerIndex: 2),
+                  Question(question: "What interval is formed between C and G?", options: ["4th", "5th", "6th", "7th"], correctAnswerIndex: 1),
+                  Question(question: "How many semitones are in a major 6th?", options: ["7", "8", "9", "10"], correctAnswerIndex: 2),
+                ],
+              ),
+            ],
+          ),
+          Chapter(
+            id: "chapter2",
+            title: "Advanced Intervals",
+            description: "Let's dive deeper.",
+            lessons: [
+              Lesson(
+                id: "lesson1",
+                title: "Interval Classes",
+                content: [
+                  LessonContent(type: "text", data: "Since the Renaissance, intervals have been divided into 3 classes. The classes are based on the degree of tension of the intervals. These three interval classes can help in the initial assessment of an interval and are also associated with certain uses in classical music.", order: 1),
+                  LessonContent(type: "text", data: "Perfect Consonances (Prime, Fifth, and Octave) are stable yet open sounds — they alone do not reveal whether the sound is a major or minor chord.\nDue to their stability, they are preferred as opening or closing harmonies. Since perfect consonances sound very homogeneous, it was forbidden to use them in parallel in classical music — otherwise, the corresponding voices would merge too much.", order: 2),
+                  LessonContent(type: "text", data: "Perfect consonances, due to their stability, represent an ideal state\npure prime/fifth/octave.", order: 3),
+                  LessonContent(type: "text", data: "Imperfect Consonances (Third and Sixth) are harmonic intervals that decide the quality (major/minor) of a harmony. They are ideal for parallel motions and can be used freely.", order: 4),
+                  LessonContent(type: "text", data: "Since imperfect consonances are not as stable as perfect consonances, they also have no ideal state.\nTheir standard forms are the major or minor third/sixth.", order: 5),
+                  LessonContent(type: "image", data: "assets/img/intervals/interval_classes.png", order: 6),
+                  LessonContent(type: "text", data: "Dissonances (Second, Seventh, also: Fourth, Tritone) are tension-rich intervals that must resolve into a more stable interval.\nAccordingly, dissonances can neither be part of closing harmonies nor of parallel motions.", order: 7),
+                  LessonContent(type: "text", data: "Dissonances, like imperfect consonances, have two standard forms: minor and major.", order: 8),
+                  
+                ],
+              ),
+            ],
+            quizzes: [
+              Quiz(
+                id: "quiz1",
+                title: "Interval Quiz",
+                questions: [
+                  Question(question: "What is a minor 3rd?", options: ["2 semitones", "3 semitones", "4 semitones", "5 semitones"], correctAnswerIndex: 1),
+                  Question(question: "What is the quality of a tritone?", options: ["Perfect", "Augmented", "Diminished", "Major"], correctAnswerIndex: 2),
+                  Question(question: "How many semitones are in a minor 7th?", options: ["9", "10", "11", "12"], correctAnswerIndex: 1),
+                  Question(question: "What interval is between E and B?", options: ["3rd", "4th", "5th", "6th"], correctAnswerIndex: 2),
+                  Question(question: "What interval is considered dissonant in classical music?", options: ["4th", "5th", "6th", "7th"], correctAnswerIndex: 0),
                 ],
               ),
             ],
@@ -328,6 +372,3 @@ class MockDatabaseRepository implements DatabaseRepository {
       ),
     ];
   }
-
-
-

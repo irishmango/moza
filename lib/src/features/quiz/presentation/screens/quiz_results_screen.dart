@@ -34,7 +34,10 @@ class QuizResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           spacing: 20,
-          children: [Container(
+          children: [
+            Image.asset("assets/img/results_screen_notes.png", width: 250,),
+            SizedBox(height: 20,),
+            Container(
             width: MediaQuery.of(context).size.width * 0.8,
             height: 350,
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
@@ -120,11 +123,8 @@ class QuizResultsScreen extends StatelessWidget {
               ),
               QuizMainButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (_) => const ComingSoon()),
-                    (route) => route.isFirst, 
-                  );
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (ctx) => ComingSoon()));
                 },
                 hasChecked: false,
                 text: "Finish",

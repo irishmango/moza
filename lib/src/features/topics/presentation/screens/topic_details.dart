@@ -110,26 +110,3 @@ final List<Color> buttonColors = [
 
 
 
-// final List<Map<String, dynamic>> chapters = [
-//       {
-//         "title": "Chord Construction\n& Recognition",
-//         "color": const Color(0xFFE5EDFF),
-//         "buttonColor": const Color(0xFFBED2FF),
-//         "duration": "1 Hr 15 Mins",
-//         "lessonAmount": "8 Lessons",
-//       },
-//       {
-//         "title": "Advanced Chords",
-//         "color": const Color(0xFF3C79D0),
-//         "buttonColor": const Color(0xFF0056D1),
-//         "duration": "1 Hr",
-//         "lessonAmount": "6 Lessons",
-//       },
-//       {
-//         "title": "Chord Analysis",
-//         "color": const Color(0xFFF9AC4F),
-//         "buttonColor": const Color(0xFFFF8D00),
-//         "duration": "45 Mins",
-//         "lessonAmount": "4 Lessons",
-//       },
-//     ];

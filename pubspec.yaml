@@ -86,6 +86,9 @@ flutter:
     - assets/badges/badge_3.png
     - assets/badges/badge_4.png
     - assets/badges/badge_5.png
+    - assets/img/intervals/basic_intervals_1.png
+    - assets/img/intervals/interval_classes.png
+    - assets/img/results_screen_notes.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

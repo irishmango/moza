@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class XPTile extends StatelessWidget {
+  // TODO 1: Accept XP points from database storage
   const XPTile({
     super.key,
   });
@@ -9,7 +10,7 @@ class XPTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 98,
+      width: 110,
       height: 42,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(5), bottomLeft: Radius.circular(5), bottomRight: Radius.circular(16)),

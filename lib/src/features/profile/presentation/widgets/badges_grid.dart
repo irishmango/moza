@@ -96,6 +96,10 @@ class BadgesGrid extends StatelessWidget {
   }
 }
 
+
+
+
+
 class BadgeTile extends StatelessWidget {
   final String? imagePath;
   final String? badgeTitle;

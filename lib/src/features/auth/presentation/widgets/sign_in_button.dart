@@ -4,8 +4,15 @@ import 'package:moza/src/models/mock_database_repository.dart';
 import 'package:moza/theme.dart';
 
 class SignInButton extends StatelessWidget {
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final Map<String, String> testUser;
+
   const SignInButton({
     super.key,
+    required this.emailController,
+    required this.passwordController,
+    required this.testUser,
   });
 
   @override
@@ -19,10 +26,32 @@ class SignInButton extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {
-          final db = MockDatabaseRepository();
-          Navigator.of(context).push(
-            MaterialPageRoute(
-            builder: (context) => Dashboard(db: db,)));
+          final enteredEmail = emailController.text.trim();
+          final enteredPassword = passwordController.text;
+
+          final isAuthenticated =
+              enteredEmail == testUser['email'] &&
+              enteredPassword == testUser['password'];
+
+          if (isAuthenticated) {
+            final db = MockDatabaseRepository();
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => Dashboard(db: db),
+              ),
+            );
+          } else {
+            final snackBar = SnackBar(
+              content: const Text(
+                'Invalid credentials.',
+                style: TextStyle(fontSize: 16),
+              ),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 2),
+            );
+
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          }
         },
         child: Text(
           "Sign In",

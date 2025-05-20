@@ -40,10 +40,13 @@ class _QuizTimeScreenState extends State<QuizTimeScreen> {
   }
 
   void _spinWheel() {
-    if (filteredTopics.isEmpty) {
+    final availableTopics = filteredTopics.isEmpty ? topics : filteredTopics;
+
+    if (availableTopics.isEmpty) {
       return;
     }
-    final randomIndex = Random().nextInt(filteredTopics.length);
+
+    final randomIndex = Random().nextInt(availableTopics.length);
     controller.add(randomIndex);
   }
 

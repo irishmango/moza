@@ -11,6 +11,11 @@ class LoginCard extends StatefulWidget {
 }
 
 class _LoginCardState extends State<LoginCard> {
+  final Map<String, String> _testUser = {
+    'email': 'shokri@moza.com',
+    'password': 'appAkademie',
+  };
+
   bool isObscured = true;
 
   final _emailController = TextEditingController();
@@ -18,14 +23,10 @@ class _LoginCardState extends State<LoginCard> {
 
   @override
   void dispose() {
-
     _emailController.dispose();
     _passwordController.dispose();
-
     super.dispose();
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +147,11 @@ class _LoginCardState extends State<LoginCard> {
         ),
         const SizedBox(height: 25),
         Center(
-          child: SignInButton(),
+          child: SignInButton(
+            emailController: _emailController,
+            passwordController: _passwordController,
+            testUser: _testUser,
+          ),
         ),
       ],
     );

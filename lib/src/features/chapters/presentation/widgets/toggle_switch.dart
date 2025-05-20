@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum Mode { lesson, quiz }
+enum Mode {lesson, quiz}
 
 class ToggleSwitch extends StatefulWidget {
   final Function(Mode) onChanged;

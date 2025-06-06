@@ -2,43 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/presentation/screens/quiz_screen.dart';
 import 'package:moza/theme.dart';
+import 'package:moza/src/models/database_repository.dart';
 
 class QuizList extends StatelessWidget {
   final List<Quiz> quizzes;
+  final DatabaseRepository db; 
 
   const QuizList({
     required this.quizzes,
-    super.key, 
-    });
-
-   
+    required this.db,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.only(bottom: 8),
+      itemCount: quizzes.length,
+      itemBuilder: (context, index) {
+        final quiz = quizzes[index];
 
-    return
-        // topics grid
-        ListView.builder(
-          // physics: NeverScrollableScrollPhysics(),
+        return Padding(
           padding: const EdgeInsets.only(bottom: 8),
-          itemCount: quizzes.length,
-          itemBuilder: (context, index) {
-            final quiz = quizzes[index];
-
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: QuizTile(quiz: quiz),
-            );
-          },
+          child: QuizTile(quiz: quiz, db: db),
+        );
+      },
     );
   }
 }
 
-
 class QuizTile extends StatelessWidget {
   final Quiz quiz;
+  final DatabaseRepository db;  
 
-  const QuizTile({super.key, required this.quiz});
+  const QuizTile({
+    super.key,
+    required this.quiz,
+    required this.db,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class QuizTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (ctx) => QuizScreen(quiz: quiz,),
+            builder: (ctx) => QuizScreen(quizId: quiz.id, db: db),
           ),
         );
       },

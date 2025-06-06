@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moza/src/features/topics/domain/topic.dart';
 import 'package:moza/src/features/topics/presentation/screens/topic_details.dart';
 import 'package:moza/src/features/topics/presentation/widgets/topic_tile.dart';
 import 'package:moza/src/models/database_repository.dart';
@@ -30,28 +31,43 @@ class TopicsGrid extends StatelessWidget {
    
 
   @override
-  Widget build(BuildContext context) {
-    final allTopics = db.getAllTopics();
-    final topicsToDisplay = limit != null ? allTopics.take(limit!).toList() : allTopics;
+Widget build(BuildContext context) {
+  return FutureBuilder<List<Topic>>(
+    future: db.getAllTopics(),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return const Center(child: CircularProgressIndicator());
+      } else if (snapshot.hasError) {
+        return Center(child: Text('Error: ${snapshot.error}'));
+      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+        return const Center(child: Text('No topics found.'));
+      }
 
-    return GridView.count(
-      crossAxisCount: 2,
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      padding: const EdgeInsets.only(bottom: 8),
-      shrinkWrap: true,
-      physics: scrollable ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
-      children: topicsToDisplay.asMap().entries.map((entry) {
-        int index = entry.key;
-        var topic = entry.value;
+      final topics = snapshot.data!;
+      final topicsToDisplay = limit != null ? topics.take(limit!).toList() : topics;
 
-        return TopicTile(
-          title: topic.title,
-          path: () => TopicDetails(topic: topic, db: db),
-          color: colors[index % colors.length],
-        );
-      }).toList(),
-    );
-  }
+      return GridView.count(
+        crossAxisCount: 2,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        padding: const EdgeInsets.only(bottom: 8),
+        shrinkWrap: true,
+        physics: scrollable
+            ? const BouncingScrollPhysics()
+            : const NeverScrollableScrollPhysics(),
+        children: topicsToDisplay.asMap().entries.map((entry) {
+          int index = entry.key;
+          var topic = entry.value;
+
+          return TopicTile(
+            title: topic.title,
+            path: () => TopicDetails(topic: topic, db: db),
+            color: colors[index % colors.length],
+          );
+        }).toList(),
+      );
+    },
+  );
+}
 }
 

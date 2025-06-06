@@ -15,6 +15,13 @@ class SignInButton extends StatelessWidget {
     required this.testUser,
   });
 
+  bool isValidEmail(String email) {
+  final regex = RegExp(
+    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$"
+  );
+  return regex.hasMatch(email);
+}
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +35,20 @@ class SignInButton extends StatelessWidget {
         onPressed: () {
           final enteredEmail = emailController.text.trim();
           final enteredPassword = passwordController.text;
+
+          if (!isValidEmail(enteredEmail)) {
+            final snackBar = SnackBar(
+              content: const Text(
+                'Please enter a valid email address.',
+                style: TextStyle(fontSize: 16),
+              ),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 2),
+            );
+
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            return;
+          }
 
           final isAuthenticated =
               enteredEmail == testUser['email'] &&

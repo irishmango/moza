@@ -59,8 +59,8 @@ class _ChapterScreenState extends State<ChapterScreen> {
               // View mode
               Expanded(
                 child: _selectedMode == Mode.lesson 
-                  ? LessonView(lessons: lessons) 
-                  : QuizView(quizzes: quizzes),
+                  ? LessonView(lessons: lessons, db: widget.db,) 
+                  : QuizView(quizzes: quizzes, db: widget.db,),
               ),
             ],
           ),

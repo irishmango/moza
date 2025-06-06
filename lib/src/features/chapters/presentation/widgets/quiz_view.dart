@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/chapters/presentation/widgets/quiz_list.dart';
 import 'package:moza/src/features/quiz/domain/quiz.dart';
+import 'package:moza/src/models/database_repository.dart';
 
 
 class QuizView extends StatelessWidget {
   final List<Quiz> quizzes;
+  final DatabaseRepository db; 
 
   const QuizView({
     required this.quizzes,
-    super.key});
+    required this.db,
+    super.key, 
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class QuizView extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          // heading
+       
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -29,7 +33,7 @@ class QuizView extends StatelessWidget {
           ),
           
           
-          Expanded(child: QuizList(quizzes: quizzes,))
+          Expanded(child: QuizList(quizzes: quizzes, db: db))
         
 
 

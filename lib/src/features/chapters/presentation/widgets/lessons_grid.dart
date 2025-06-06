@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:moza/src/features/lessons/domain/lesson.dart';
 import 'package:moza/src/features/lessons/presentation/screens/lesson_screen.dart';
 import 'package:moza/src/features/topics/presentation/widgets/topic_tile.dart';
+import 'package:moza/src/models/database_repository.dart';
 
 class LessonsGrid extends StatelessWidget {
   final List<Lesson> lessons;
-
+  final DatabaseRepository db;
 
   const LessonsGrid({
     required this.lessons,
-    super.key, 
-    });
-
-   
+    required this.db,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-
     return GridView.builder(
       itemCount: lessons.length,
       padding: const EdgeInsets.only(bottom: 8),
@@ -33,10 +32,12 @@ class LessonsGrid extends StatelessWidget {
         return TopicTile(
           title: lesson.title,
           color: const Color(0xFFE5EDFF),
-          path: () => LessonScreen(lesson: lesson),  
+          path: () => LessonScreen(
+            lessonId: lesson.id,
+            db: db,
+          ),
         );
       },
     );
   }
 }
-

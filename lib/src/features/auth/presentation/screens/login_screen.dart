@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 200,),
+                SizedBox(height: 150,),
                 Text("Welcome to MOZA!", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, height: 1),),
                 SizedBox(height: 12,),
                 Text("Login to your\naccount", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, height: 1)),

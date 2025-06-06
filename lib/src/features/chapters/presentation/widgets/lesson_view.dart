@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/chapters/presentation/widgets/lessons_grid.dart';
 import 'package:moza/src/features/lessons/domain/lesson.dart';
-
+import 'package:moza/src/models/database_repository.dart';
 
 class LessonView extends StatelessWidget {
   final List<Lesson> lessons;
-  
+  final DatabaseRepository db;
+
   const LessonView({
     required this.lessons,
-    super.key});
+    required this.db,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +19,19 @@ class LessonView extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          // heading
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text("Lessons", style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+              Text(
+                "Lessons",
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-
-          LessonsGrid(lessons: lessons,)
-
-        
-
-
+          LessonsGrid(lessons: lessons, db: db),
         ],
       ),
     );

@@ -4,10 +4,18 @@ import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/domain/quiz_result.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 import 'package:moza/src/models/database_repository.dart';
+import 'package:moza/src/models/user.dart';
 
 class MockDatabaseRepository implements DatabaseRepository {
 
   List<QuizResult> quizResults = [];
+  List<User> users = [];
+
+  @override
+  Future<void> addUser(User user) async {
+    await Future.delayed(Duration(seconds: 2));
+    users.add(user);
+  }
   
 
   

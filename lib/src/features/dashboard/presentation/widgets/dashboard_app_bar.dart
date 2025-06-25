@@ -19,30 +19,34 @@ class DashboardAppBar extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => ProfileScreen()));
           },
-          child: CircleAvatar(
-            radius: 40,
-            backgroundImage: AssetImage('assets/img/avatar_profile.png'),
+          child: Column(
+            spacing: 8,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/img/avatar_profile.png'),
+              ),
+              XPTile()
+            ],
           ),
         ),
         
-        // SizedBox(width: 12),
+        SizedBox(width: 4),
     
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("WELCOME BACK!", style: TextStyle(color: AppColors.textColor, fontSize: 20, fontWeight: FontWeight.w600),),
-              Text("Shokri Francis", style: TextStyle(color: AppColors.textColor, fontSize: 20, fontWeight: FontWeight.bold),),
+              Text("WELCOME BACK!", style: TextStyle(color: AppColors.textColor, fontSize: 28, fontWeight: FontWeight.w600),),
+              Text("Shokri Francis", style: TextStyle(color: AppColors.textColor, fontSize: 28, fontWeight: FontWeight.bold),),
             ],
           ),
         ),
     
         SizedBox(width: 12),
     
-        Flexible(
-          fit: FlexFit.loose,
-          child: XPTile())
+        
       ],
     );
   }

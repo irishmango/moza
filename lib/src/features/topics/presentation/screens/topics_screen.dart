@@ -26,7 +26,7 @@ class TopicsScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
 
-                TopicsGrid(scrollable: false, db: db,)
+                TopicsGrid(scrollable: true, db: db,)
               ],
             ),
             )),

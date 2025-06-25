@@ -10,8 +10,8 @@ class XPTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110,
-      height: 42,
+      width: 100,
+      height: 36,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(5), bottomLeft: Radius.circular(5), bottomRight: Radius.circular(16)),
         gradient:LinearGradient(

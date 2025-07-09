@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:moza/src/features/auth/presentation/screens/login_screen.dart';
 import 'package:moza/src/features/profile/presentation/widgets/badges_grid.dart';
 import 'package:moza/src/features/settings/presentation/screens/change_password.dart';
+import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/screen_header.dart';
 import 'package:moza/src/shared/xp_tile.dart';
 import 'package:moza/theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 final Map<String, dynamic> dummyUserProfile = {
   "firstName": "Shokri Francis",
@@ -17,7 +20,9 @@ final Map<String, dynamic> dummyUserProfile = {
 };
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  final AuthRepository auth;
+
+  const SettingsScreen(this.auth, {super.key});
 
   
 
@@ -224,6 +229,31 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ),
                 SizedBox(height: 16),
+                // Sign Out Button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (_) => LoginScreen(auth)),
+                          );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey,
+                      padding: EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    child: Text(
+                      "Sign Out",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
             
             
                 

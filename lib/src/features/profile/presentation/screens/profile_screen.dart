@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/profile/presentation/widgets/badges_grid.dart';
 import 'package:moza/src/features/settings/presentation/screens/settings_screen.dart';
+import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/screen_header.dart';
 import 'package:moza/src/shared/xp_tile.dart';
 import 'package:moza/theme.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final AuthRepository auth;
+  const ProfileScreen(this.auth, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 ScreenHeader(title: "Profile", trailingIcon: Icons.settings, onTrailingIconPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (ctx) => SettingsScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx) => SettingsScreen(auth)));
                 },),
                 SizedBox(height: 6),
                 Column(

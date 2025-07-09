@@ -1,26 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/dashboard/presentation/screens/dashboard.dart';
+import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/models/mock_database_repository.dart';
 import 'package:moza/theme.dart';
 
 class SignInButton extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final Map<String, String> testUser;
+  final AuthRepository auth;
 
-  const SignInButton({
+  const SignInButton(
+    this.auth,
+    {
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.testUser,
   });
 
   bool isValidEmail(String email) {
-  final regex = RegExp(
-    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$"
-  );
-  return regex.hasMatch(email);
-}
+    final regex = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$"
+    );
+    return regex.hasMatch(email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,47 +35,61 @@ class SignInButton extends StatelessWidget {
         color: AppColors.appOrange,
       ),
       child: TextButton(
-        onPressed: () {
+        onPressed: () async {
           final enteredEmail = emailController.text.trim();
           final enteredPassword = passwordController.text;
 
           if (!isValidEmail(enteredEmail)) {
-            final snackBar = SnackBar(
-              content: const Text(
-                'Please enter a valid email address.',
-                style: TextStyle(fontSize: 16),
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                  'Please enter a valid email address.',
+                  style: TextStyle(fontSize: 16),
+                ),
+                backgroundColor: Colors.red,
+                duration: Duration(seconds: 2),
               ),
-              backgroundColor: Colors.red,
-              duration: const Duration(seconds: 2),
             );
-
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
             return;
           }
 
-          final isAuthenticated =
-              enteredEmail == testUser['email'] &&
-              enteredPassword == testUser['password'];
+          try {
+            await auth.signInWithEmailAndPassword(enteredEmail, enteredPassword);
 
-          if (isAuthenticated) {
             final db = MockDatabaseRepository();
-            Navigator.of(context).push(
+            Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => Dashboard(db: db),
+                builder: (context) => Dashboard(auth, db: db),
               ),
             );
-          } else {
-            final snackBar = SnackBar(
-              content: const Text(
-                'Invalid credentials.',
-                style: TextStyle(fontSize: 16),
-              ),
-              backgroundColor: Colors.red,
-              duration: const Duration(seconds: 2),
-            );
+          } on FirebaseAuthException catch (e) {
+            String error;
+            switch (e.code) {
+              case 'user-not-found':
+              case 'wrong-password':
+                error = 'No account found with that email and password.';
+                break;
+              case 'invalid-email':
+                error = 'The email address is not valid.';
+                break;
+              case 'user-disabled':
+                error = 'This account has been disabled.';
+                break;
+              case 'email-not-verified':
+                error = 'Please verify your email before logging in.';
+                break;
+              default:
+                error = 'Authentication failed. Please try again.';
+            }
 
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(error, style: TextStyle(fontSize: 16)),
+      backgroundColor: Colors.red,
+      duration: Duration(seconds: 2),
+    ),
+  );
+}
         },
         child: Text(
           "Sign In",

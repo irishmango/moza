@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/dashboard_app_bar.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/learn_path_card.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/quiz_time_card.dart';
+import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/header_expand.dart';
@@ -10,8 +11,11 @@ import 'package:moza/src/features/topics/presentation/widgets/topics_grid.dart';
 
 class Dashboard extends StatelessWidget {
   final DatabaseRepository db;
+  final AuthRepository auth;
 
-  const Dashboard({
+  const Dashboard(
+    this.auth,
+    {
     required this.db,
     super.key});
 
@@ -27,7 +31,7 @@ class Dashboard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                DashboardAppBar(),
+                DashboardAppBar(auth),
                 SizedBox(height: 24,),
                 LearnPathCard(),
                 SizedBox(height: 20,),

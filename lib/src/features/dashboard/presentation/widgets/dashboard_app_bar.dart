@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/profile/presentation/screens/profile_screen.dart';
+import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/shared/xp_tile.dart';
 import 'package:moza/theme.dart';
 
 class DashboardAppBar extends StatelessWidget {
-  const DashboardAppBar({
+  final AuthRepository auth;
+  const DashboardAppBar(
+    this.auth,
+    {
     super.key,
   });
 
@@ -17,7 +21,7 @@ class DashboardAppBar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
-              builder: (context) => ProfileScreen()));
+              builder: (context) => ProfileScreen(auth)));
           },
           child: Column(
             spacing: 8,

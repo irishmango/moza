@@ -3,7 +3,7 @@ import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/domain/quiz_result.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 import 'package:moza/src/features/chapters/domain/chapter.dart';
-import 'package:moza/src/models/user.dart';
+import 'package:moza/src/features/auth/domain/user.dart';
 
 abstract class DatabaseRepository {
 

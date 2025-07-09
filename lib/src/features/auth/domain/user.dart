@@ -2,7 +2,8 @@ import 'package:moza/src/features/quiz/domain/quiz_result.dart';
 
 class User {
   final String id;                 
-  final String name;
+  final String firstName;
+  final String lastName;
   final int age;
   final String email;
   int xp;                          
@@ -19,7 +20,8 @@ class User {
 
   User({
     required this.id,
-    required this.name,
+    required this.firstName,
+    required this.lastName,
     required this.age,
     required this.email,
     this.xp = 0,
@@ -32,4 +34,17 @@ class User {
     DateTime? lastActiveAt,
   })  : createdAt = createdAt ?? DateTime.now(),
         lastActiveAt = lastActiveAt ?? DateTime.now();
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'firstName': firstName,
+      'lastName': lastName,
+      'age': age,
+      'email': email,
+      'xp': xp,
+
+    };
+  }
+
 }

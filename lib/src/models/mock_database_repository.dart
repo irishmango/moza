@@ -4,15 +4,15 @@ import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/domain/quiz_result.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 import 'package:moza/src/models/database_repository.dart';
-import 'package:moza/src/features/auth/domain/user.dart';
+import 'package:moza/src/features/auth/domain/app_user.dart';
 
 class MockDatabaseRepository implements DatabaseRepository {
 
   List<QuizResult> quizResults = [];
-  List<User> users = [];
+  List<AppUser> users = [];
 
   @override
-  Future<void> addUser(User user) async {
+  Future<void> addUser(AppUser user) async {
     await Future.delayed(Duration(seconds: 2));
     users.add(user);
   }
@@ -406,4 +406,10 @@ class MockDatabaseRepository implements DatabaseRepository {
         ],
       ),
     ];
+    
+      @override
+      Future<void> migrateLessonBlocks(String lessonId) {
+    // TODO: implement migrateLessonBlocks
+    throw UnimplementedError();
+      }
   }

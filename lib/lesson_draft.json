@@ -1,0 +1,125 @@
+{
+    "title": "Interval Classes",
+    "slug": "interval-classes",
+    "topic": "music-theory",
+    "estimatedMinutes": 8,
+    "lang": "en",
+    "published": true,
+    "order": 14,
+    "version": 1,
+    "updatedAt": 1714500000
+}
+
+{
+    "type": "heading",
+    "level": 2,
+    "text": "Interval Classes",
+    "index": 0
+}
+
+{
+    "type": "note",
+    "title": "Reading time",
+    "text": "About 8 minutes.",
+    "index": 2
+}
+// 002 
+{
+    "type": "paragraph",
+    "text": "Since the Renaissance, intervals have been divided into three classes. These classes are based on the degree of tension within the intervals. The three interval classes can help with an initial assessment of an interval and are also associated with certain uses in classical music.",
+    "index": 1
+}
+// 003
+{
+    "type": "sub-heading",
+    "level": 3,
+    "text": "Perfect Consonances (unison, fifth & octave)",
+    "index": 3
+}
+// 004
+{
+    "type": "paragraph",
+    "text": "On their own, they don’t reveal whether a chord is major or minor. Because of their stability, they are preferred for opening or closing chords. Since perfect consonances sound very homogeneous, it is forbidden in classical music to use them in parallel motion — otherwise, the voices would blend too much.",
+    "index": 4
+}
+// 005
+{
+    "type": "paragraph",
+    "text": "Perfect consonances, due to their stability, have an ideal form: the pure unison/fifth/octave.",
+    "index": 5
+}
+// 006
+{
+    "type": "sub-heading",
+    "text": "Dissonances (second, seventh, also fourth and tritone)",
+    "index": 6
+}
+// 007
+{
+    "type": "paragraph",
+    "text": "There are tense intervals that inherently require resolution. The tension of the dissonance must be resolved into a less tense interval. Accordingly, dissonances can be neither part of cadences nor used in parallel motion.",
+    "index": 7
+}
+// 008
+{
+    "type": "paragraph",
+    "text": "Like imperfect consonances, dissonances have two standard forms: minor and major.",
+    "index": 8
+}
+// 009
+{
+    "type": "sub-heading",
+    "text": "Speacial Case - 4th",
+    "index": 9
+}
+// 010
+{
+    "type": "paragraph",
+    "text": "The fourth occupies a special position among intervals. It can be perceived either as a perfect consonance or as a dissonance. On one hand, its sound is very similar to that of perfect consonances — its ideal form is the pure fourth. At the same time, however, the pure fourth has been treated as a dissonance since the Renaissance: it was only allowed under certain conditions.",
+    "index": 10
+}
+// 011 — image: table
+{
+    "type": "image",
+    "src": "https://storage.googleapis.com/<bucket>/lessons/intervals/interval-class-table.png",
+    "alt": "Interval class comparison table",
+    "caption": "The following characteristics may differ from one’s own auditory impression, but largely align with historical assessments.",
+    "width": 1200,
+    "height": 540,
+    "index": 11
+}
+// 012
+{
+    "type": "heading",
+    "level": 2,
+    "text": "Recap – Simple Intervals (Basic Forms)",
+    "index": 12
+}
+// 013
+{
+    "type": "paragraph",
+    "text": "Intervals can sound one after the other (successive) or at the same time (simultaneous).",
+    "index": 13
+}
+// 014
+{
+    "type": "paragraph",
+    "text": "The names of the intervals are derived from Latin ordinal numbers (primus, secundus, etc.).",
+    "index": 14
+}
+// 015
+{
+    "type": "paragraph",
+    "text": "The distance of 6 semitones (ST) is an exception in this overview. Since it is surrounded by two perfect intervals, it has no basic form. The distance of 6 semitones is referred to as a tritone..",
+    "index": 15
+}
+// 016
+{
+    "type": "image",
+    "src": "https://storage.googleapis.com/<bucket>/lessons/intervals/simple-intervals-diagram.png",
+    "alt": "Simple intervals ladder",
+    "caption": "Prime through octave with qualities.",
+    "width": 1024,
+    "height": 1280,
+    "index": 16
+}

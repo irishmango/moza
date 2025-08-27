@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -29,17 +26,17 @@ class DefaultFirebaseOptions {
         return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
+          'DefaultFirebaseOptions have not been configured for macOS - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
+          'DefaultFirebaseOptions have not been configured for Windows - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.linux:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
+          'DefaultFirebaseOptions have not been configured for Linux - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       default:
@@ -48,6 +45,15 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAx1k0fKJYC2L1PY7ouPvV91lfw8d-5F4',
+    appId: '1:648822028461:web:35c5462fd49632c9ceee24',
+    messagingSenderId: '648822028461',
+    projectId: 'moza-972f4',
+    authDomain: 'moza-972f4.firebaseapp.com',
+    storageBucket: 'moza-972f4.firebasestorage.app',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCrlUyZ7Oy0HK83H_FGvAC-95qSkF3_u-E',
@@ -66,5 +72,4 @@ class DefaultFirebaseOptions {
     iosClientId: '648822028461-tkq1hd1n1ikjft774h1ltvjfqchtn6m8.apps.googleusercontent.com',
     iosBundleId: 'com.example.moza',
   );
-
 }

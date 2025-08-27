@@ -39,6 +39,7 @@ class Dashboard extends StatelessWidget {
                 HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
             
                 TopicsGrid(limit: 4, scrollable: false, db: db,),
+                
                 Align(
                   alignment: Alignment.centerLeft,
                     child: Text('Improvement Area',

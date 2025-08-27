@@ -3,12 +3,12 @@ import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:moza/src/features/quiz/domain/quiz_result.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 import 'package:moza/src/features/chapters/domain/chapter.dart';
-import 'package:moza/src/features/auth/domain/user.dart';
+import 'package:moza/src/features/auth/domain/app_user.dart';
 
 abstract class DatabaseRepository {
 
   // Add user
-  Future<void> addUser(User user);
+  Future<void> addUser(AppUser user);
 
   // Get all topics
   Future<List<Topic>> getAllTopics();
@@ -36,5 +36,7 @@ abstract class DatabaseRepository {
 
   // Get quiz results for a specific user
   Future<List<QuizResult>> getUserQuizResults(String userId);
+
+  Future<void> migrateLessonBlocks(String lessonId);
 }
 

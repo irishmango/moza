@@ -17,10 +17,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Choose between Firestore-backed repo or mock repo
-  // final DatabaseRepository db = MockDatabaseRepository(); 
   final DatabaseRepository db = FirestoreRepository();
-
   final AuthRepository auth = FirebaseAuthRepository();
   
   runApp(

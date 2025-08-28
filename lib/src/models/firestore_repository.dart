@@ -29,6 +29,7 @@ class FirestoreRepository implements DatabaseRepository {
       return Topic(
         id: d.id,
         title: (d.data()['title'] ?? '').toString(),
+        description: (d.data()['description'] ?? '').toString(),
         chapters: const [],
         availableXP: (d.data()['availableXP'] ?? 0).toString(),
       );

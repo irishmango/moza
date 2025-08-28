@@ -4,17 +4,25 @@ import 'package:moza/theme.dart';
 class TopicTile extends StatelessWidget {
   final String title;
   final Color color;
-  final Function() path;
+  final Widget Function() path;
+  final VoidCallback? onTap; 
 
-  const TopicTile({required this.title, required this.color, required this.path, super.key});
+  const TopicTile({
+    super.key,
+    required this.title,
+    required this.color,
+    required this.path,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (ctx) => path()
-        ));
+    return InkWell(
+      onTap: onTap ?? () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => path()),
+        );
       },
       child: GridTile(
         child: Container(
@@ -24,42 +32,47 @@ class TopicTile extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(28),
-            boxShadow: [BoxShadow(
-              color: Colors.black.withAlpha(50),
-              offset: Offset(0, 4),
-              spreadRadius: 0,
-              blurRadius: 4,
-            )
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(50),
+                offset: Offset(0, 4),
+                spreadRadius: 0,
+                blurRadius: 4,
+              )
             ],
           ),
-         child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    width: 162,
-                    child: Text(title,
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: 162,
+                  child: Text(
+                    title,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      height: 1.2
-                    ),),
+                      height: 1.2,
+                    ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Image.asset(
-                    (color == AppColors.appOrange || color == AppColors.appGreen || color == AppColors.appRed) 
-                        ? 'assets/img/moza_logo_white.png'
-                        : 'assets/img/moza_logo_yellow.png',
-                    width: 65,
-                    height: 65,
-                  ),
-                )
-              ]
-            ),
-          ) 
-        )
-        );
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset(
+                  (color == AppColors.appOrange ||
+                          color == AppColors.appGreen ||
+                          color == AppColors.appRed)
+                      ? 'assets/img/moza_logo_white.png'
+                      : 'assets/img/moza_logo_yellow.png',
+                  width: 65,
+                  height: 65,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

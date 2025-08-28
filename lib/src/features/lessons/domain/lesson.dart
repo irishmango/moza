@@ -13,11 +13,13 @@ class LessonContent {
 class Lesson {
   final String id;
   final String title;
+  final String slug;
   final List<LessonContent> content;
 
   Lesson({
     required this.id,
     required this.title,
+    required this.slug,
     required this.content,
   });
 }

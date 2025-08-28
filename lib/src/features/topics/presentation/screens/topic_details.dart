@@ -1,4 +1,6 @@
+// lib/src/features/topics/presentation/screens/topic_details.dart
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:moza/src/features/chapters/domain/chapter.dart';
 import 'package:moza/src/features/chapters/presentation/screens/chapter_screen.dart';
 import 'package:moza/src/features/chapters/presentation/widgets/chapter_card.dart';
@@ -12,9 +14,7 @@ import 'package:moza/theme.dart';
 
 class TopicDetails extends StatefulWidget {
   final Topic topic;
-  final DatabaseRepository db;
-
-  const TopicDetails({super.key, required this.topic, required this.db});
+  const TopicDetails({super.key, required this.topic});
 
   @override
   State<TopicDetails> createState() => _TopicDetailsState();
@@ -24,16 +24,13 @@ class _TopicDetailsState extends State<TopicDetails> {
   bool isExpanded = false;
   late Future<List<Chapter>> _chaptersFuture;
 
-  void toggleExpand() {
-    setState(() {
-      isExpanded = !isExpanded;
-    });
-  }
+  void toggleExpand() => setState(() => isExpanded = !isExpanded);
 
   @override
   void initState() {
     super.initState();
-    _chaptersFuture = widget.db.getChapters(widget.topic.id);
+    final db = context.read<DatabaseRepository>(); 
+    _chaptersFuture = db.getChapters(widget.topic.id);
   }
 
   final List<Color> colors = [
@@ -41,7 +38,6 @@ class _TopicDetailsState extends State<TopicDetails> {
     AppColors.appBlue,
     AppColors.appOrange,
   ];
-
   final List<Color> buttonColors = [
     AppColors.appLightBlueAccent,
     AppColors.appBlueAccent,
@@ -50,6 +46,8 @@ class _TopicDetailsState extends State<TopicDetails> {
 
   @override
   Widget build(BuildContext context) {
+    final db = context.read<DatabaseRepository>(); 
+
     return FutureBuilder<List<Chapter>>(
       future: _chaptersFuture,
       builder: (context, snapshot) {
@@ -62,18 +60,16 @@ class _TopicDetailsState extends State<TopicDetails> {
         }
 
         final chapters = snapshot.data!;
-
         const double baseHeight = 220;
         const double spacing = 30;
-        double expandedHeight =
+        final double expandedHeight =
             (baseHeight * chapters.length) + (spacing * (chapters.length - 1));
 
         return CustomScaffold(
           body: SingleChildScrollView(
             child: SafeArea(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -96,20 +92,16 @@ class _TopicDetailsState extends State<TopicDetails> {
                             AnimatedPositioned(
                               duration: const Duration(milliseconds: 400),
                               curve: Curves.easeInOut,
-                              left: 0,
-                              right: 0,
-                              top: isExpanded
-                                  ? (baseHeight + spacing) * i
-                                  : 115.0 * i,
+                              left: 0, right: 0,
+                              top: isExpanded ? (baseHeight + spacing) * i : 115.0 * i,
                               child: ChapterCard(
                                 chapter: chapters[i],
                                 method: toggleExpand,
                                 color: colors[i % colors.length],
-                                buttonColor:
-                                    buttonColors[i % buttonColors.length],
+                                buttonColor: buttonColors[i % buttonColors.length],
                                 path: ChapterScreen(
-                                  db: widget.db,
                                   chapter: chapters[i],
+                                  topicId: widget.topic.id,
                                 ),
                               ),
                             ),

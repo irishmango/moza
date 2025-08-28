@@ -37,7 +37,7 @@ class Dashboard extends StatelessWidget {
                 // Section header with link to Topics
                 HeaderExpand(
                   title: "Topics to learn",
-                  path: TopicsScreen(db: db), // if you later refactor TopicsScreen to Provider, use: const TopicsScreen()
+                  path: TopicsScreen(), // if you later refactor TopicsScreen to Provider, use: const TopicsScreen()
                 ),
 
                 // Topics preview
@@ -75,7 +75,6 @@ class Dashboard extends StatelessWidget {
                     return TopicsGrid(
                       limit: 4,
                       scrollable: false,
-                      db: db,           // keep passing while TopicsGrid/Details expect it
                       topics: topics,
                     );
                   },

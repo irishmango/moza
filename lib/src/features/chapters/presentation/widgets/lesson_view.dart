@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // 👈 add this
 import 'package:moza/src/features/chapters/presentation/widgets/lessons_grid.dart';
 import 'package:moza/src/features/lessons/domain/lesson.dart';
 import 'package:moza/src/models/database_repository.dart';
 
 class LessonView extends StatelessWidget {
   final List<Lesson> lessons;
-  final DatabaseRepository db;
 
   const LessonView({
     required this.lessons,
-    required this.db,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final db = context.read<DatabaseRepository>(); 
+
     return SizedBox(
       width: double.infinity,
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 "Lessons",
                 style: TextStyle(
@@ -31,7 +32,7 @@ class LessonView extends StatelessWidget {
               ),
             ],
           ),
-          LessonsGrid(lessons: lessons, db: db),
+          LessonsGrid(lessons: lessons), 
         ],
       ),
     );

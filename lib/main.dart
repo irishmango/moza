@@ -5,6 +5,7 @@ import 'package:moza/src/app.dart';
 import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/models/firebase_auth_repository.dart';
+import 'package:moza/src/models/firestore_repository.dart';
 import 'package:moza/src/models/mock_database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'firebase_options.dart';
@@ -17,8 +18,8 @@ void main() async {
   );
 
   // Choose between Firestore-backed repo or mock repo
-  final DatabaseRepository db = MockDatabaseRepository(); 
-  // For real Firestore: final DatabaseRepository db = FirestoreDatabaseRepository();
+  // final DatabaseRepository db = MockDatabaseRepository(); 
+  final DatabaseRepository db = FirestoreRepository();
 
   final AuthRepository auth = FirebaseAuthRepository();
   

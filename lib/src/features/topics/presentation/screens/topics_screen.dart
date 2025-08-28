@@ -1,5 +1,6 @@
-// topics_screen.dart
+// lib/src/features/topics/presentation/screens/topics_screen.dart
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/features/topics/presentation/widgets/topics_grid.dart';
@@ -7,12 +8,12 @@ import 'package:moza/src/shared/screen_header.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 
 class TopicsScreen extends StatelessWidget {
-  final DatabaseRepository db;
-
-  const TopicsScreen({required this.db, super.key});
+  const TopicsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final db = context.read<DatabaseRepository>();
+
     return CustomScaffold(
       body: FutureBuilder<List<Topic>>(
         future: db.getAllTopics(),
@@ -37,7 +38,7 @@ class TopicsScreen extends StatelessWidget {
                           const Text('No topics found.')
                         else
                           TopicsGrid(
-                            topics: topics,       // <- pass data to grid
+                            topics: topics,
                             scrollable: true,
                           ),
                       ],
@@ -45,13 +46,11 @@ class TopicsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // Loading overlay (sits on top of the background)
               if (isLoading)
                 const IgnorePointer(
                   ignoring: true,
                   child: ColoredBox(
-                    color: Colors.transparent, // or Colors.black12 for dim
+                    color: Colors.transparent,
                     child: Center(child: CircularProgressIndicator()),
                   ),
                 ),

@@ -52,8 +52,8 @@ class TopicMainCard extends StatelessWidget {
             ),
 
             Row(
-              children: const [
-                Text("• Complete this course to get 380XP", style: TextStyle(fontWeight: FontWeight.w600)),
+              children: [
+                Text("• Complete this course to get ${topic.availableXP}", style: TextStyle(fontWeight: FontWeight.w600)),
               ],
             ),
 

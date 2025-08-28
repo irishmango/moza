@@ -17,7 +17,7 @@ abstract class DatabaseRepository {
   Future<List<Chapter>> getChapters(String topicId);
 
   // Get lessons within a specific chapter
-  Future<List<Lesson>> getLessons(String chapterId);
+  Future<List<Lesson>> getLessons(String topicId, String chapterId);
 
   // Get quizzes within a specific chapter
   Future<List<Quiz>> getQuizzes(String chapterId);

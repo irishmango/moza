@@ -20,27 +20,60 @@ class FirestoreRepository implements DatabaseRepository {
     throw UnimplementedError();
   }
 
+  final _db = FirebaseFirestore.instance;
+
   @override
-  Future<List<Topic>> getAllTopics() {
-    // TODO: implement getAllTopics
-    throw UnimplementedError();
+  Future<List<Topic>> getAllTopics() async {
+    final snap = await _db.collection('topics').orderBy('title').get();
+    return snap.docs.map((d) {
+      return Topic(
+        id: d.id,
+        title: (d.data()['title'] ?? '').toString(),
+        chapters: const [],
+        availableXP: (d.data()['availableXP'] ?? 0).toString(),
+      );
+    }).toList();
   }
 
   @override
-  Future<List<Chapter>> getChapters(String topicId) {
-    // TODO: implement getChapters
-    throw UnimplementedError();
+  Future<List<Chapter>> getChapters(String topicId) async {
+    final ref = _db.collection('topics').doc(topicId).collection('chapters');
+    final snap = await ref.orderBy('title').get();
+    return snap.docs.map((d) {
+      return Chapter(
+        id: d.id,
+        title: (d.data()['title'] ?? '').toString(),
+        description: (d.data()['description'] ?? '').toString(),
+        lessons: const [], 
+        quizzes: const [], 
+      );
+    }).toList();
   }
+
+  @override
+  Future<List<Lesson>> getLessons(String topicId, String chapterId) async {
+    final ref = _db.collection('topics')
+      .doc(topicId)
+      .collection('chapters')
+      .doc(chapterId)
+      .collection('lessons'); 
+
+    final snap = await ref.orderBy('title').get();
+    return snap.docs.map((d) {
+      return Lesson(
+        id: d.id,
+        title: (d.data()['title'] ?? '').toString(),
+        slug:  (d.data()['slug']  ?? '').toString(),
+        content: [],
+        // etc...
+      );
+    }).toList();
+  }
+
 
   @override
   Future<List<LessonContent>> getLessonContent(String lessonId) {
     // TODO: implement getLessonContent
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<Lesson>> getLessons(String chapterId) {
-    // TODO: implement getLessons
     throw UnimplementedError();
   }
 

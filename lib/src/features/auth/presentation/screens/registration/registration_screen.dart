@@ -1,4 +1,7 @@
+// lib/src/features/auth/presentation/screens/registration/registration_screen.dart
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:moza/src/features/auth/presentation/screens/login_screen.dart';
 import 'package:moza/src/features/auth/presentation/widgets/reg_button.dart';
 import 'package:moza/src/models/auth_repository.dart';
@@ -8,8 +11,7 @@ import 'package:moza/theme.dart';
 enum RegistrationStep { firstName, lastName, email, password, confirmation }
 
 class RegistrationScreen extends StatefulWidget {
-  final AuthRepository auth;
-  const RegistrationScreen(this.auth, {super.key});
+  const RegistrationScreen({super.key}); // 👈 no more AuthRepository in ctor
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -54,7 +56,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     });
   }
 
-  void _nextStep() async {
+  Future<void> _nextStep() async {
     if (!_isButtonEnabled) return;
 
     setState(() => _isButtonEnabled = false);
@@ -70,14 +72,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       setState(() => _currentStep = RegistrationStep.password);
     } else if (_currentStep == RegistrationStep.password) {
       _password = _passwordController.text.trim();
+
+      // 👇 grab AuthRepository from Provider
+      final auth = context.read<AuthRepository>();
+
       try {
-        await widget.auth.registerUser(_email, _password, _firstName, _lastName);
-        await widget.auth.sendVerificationEmail();
+        await auth.registerUser(_email, _password, _firstName, _lastName);
+        await auth.sendVerificationEmail();
         setState(() => _currentStep = RegistrationStep.confirmation);
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Registration failed: $e")),
         );
+        setState(() => _isButtonEnabled = true); // re-enable on failure
       }
     }
   }
@@ -127,7 +134,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (ctx) => LoginScreen(widget.auth),
+                            // 👇 LoginScreen also reads from Provider now
+                            builder: (_) => const LoginScreen(),
                           ),
                         );
                       },
@@ -167,7 +175,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (ctx) => LoginScreen(widget.auth)),
+                        MaterialPageRoute(
+                          builder: (_) => const LoginScreen(),
+                        ),
                       );
                     },
                     child: RichText(

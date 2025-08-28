@@ -1,18 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // 👈
 import 'package:moza/src/features/dashboard/presentation/screens/dashboard.dart';
 import 'package:moza/src/models/auth_repository.dart';
-import 'package:moza/src/models/mock_database_repository.dart';
+import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/theme.dart';
 
 class SignInButton extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final AuthRepository auth;
 
-  const SignInButton(
-    this.auth,
-    {
+  const SignInButton({
     super.key,
     required this.emailController,
     required this.passwordController,
@@ -20,13 +18,17 @@ class SignInButton extends StatelessWidget {
 
   bool isValidEmail(String email) {
     final regex = RegExp(
-      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$"
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+$",
     );
     return regex.hasMatch(email);
   }
 
   @override
   Widget build(BuildContext context) {
+    // Get repos from Provider
+    final auth = context.read<AuthRepository>();
+    final db   = context.read<DatabaseRepository>();
+
     return Container(
       width: 190,
       height: 50,
@@ -56,11 +58,8 @@ class SignInButton extends StatelessWidget {
           try {
             await auth.signInWithEmailAndPassword(enteredEmail, enteredPassword);
 
-            final db = MockDatabaseRepository();
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => Dashboard(auth, db: db),
-              ),
+              MaterialPageRoute(builder: (_) => const Dashboard()),
             );
           } on FirebaseAuthException catch (e) {
             String error;
@@ -82,14 +81,14 @@ class SignInButton extends StatelessWidget {
                 error = 'Authentication failed. Please try again.';
             }
 
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(error, style: TextStyle(fontSize: 16)),
-      backgroundColor: Colors.red,
-      duration: Duration(seconds: 2),
-    ),
-  );
-}
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(error, style: const TextStyle(fontSize: 16)),
+                backgroundColor: Colors.red,
+                duration: const Duration(seconds: 2),
+              ),
+            );
+          }
         },
         child: Text(
           "Sign In",

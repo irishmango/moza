@@ -7,19 +7,13 @@ import 'package:moza/theme.dart';
 
 
 class App extends StatelessWidget {
-  // Attribute
-  final DatabaseRepository db;
-  final AuthRepository auth;
+  App({super.key});
 
-  // Konstruktor
-  App(this.db, this.auth, {super.key});
-
-  // Methode(n)
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: primaryTheme,
-      home: LoginScreen(auth),
+      home: LoginScreen(),
     );
   }
 }

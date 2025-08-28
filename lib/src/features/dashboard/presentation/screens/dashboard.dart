@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; // 👈 add this
+
 import 'package:moza/src/features/dashboard/presentation/widgets/dashboard_app_bar.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/learn_path_card.dart';
 import 'package:moza/src/features/dashboard/presentation/widgets/quiz_time_card.dart';
@@ -11,19 +13,14 @@ import 'package:moza/src/features/topics/presentation/widgets/topics_grid.dart';
 import 'package:moza/src/features/topics/domain/topic.dart';
 
 class Dashboard extends StatelessWidget {
-  final DatabaseRepository db;
-  final AuthRepository auth;
-
-  const Dashboard(
-    this.auth,
-    {
-    required this.db,
-    super.key});
-
-  
+  const Dashboard({super.key}); // 👈 no args
 
   @override
   Widget build(BuildContext context) {
+    // Pull repos from Provider
+    final auth = context.read<AuthRepository>();
+    final db   = context.read<DatabaseRepository>();
+
     return CustomScaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -32,65 +29,67 @@ class Dashboard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                DashboardAppBar(auth),
-                SizedBox(height: 24,),
-                LearnPathCard(),
-                SizedBox(height: 20,),
-            
-                // ...
-HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
+                DashboardAppBar(), // still passes auth (or refactor this widget too)
+                const SizedBox(height: 24),
+                const LearnPathCard(),
+                const SizedBox(height: 20),
 
-FutureBuilder<List<Topic>>(
-  future: db.getAllTopics(), 
-  builder: (context, snapshot) {
-    final isLoading = snapshot.connectionState == ConnectionState.waiting;
-    final hasError  = snapshot.hasError;
-    final topics    = snapshot.data ?? const <Topic>[];
+                // Section header with link to Topics
+                HeaderExpand(
+                  title: "Topics to learn",
+                  path: TopicsScreen(db: db), // if you later refactor TopicsScreen to Provider, use: const TopicsScreen()
+                ),
 
-    if (isLoading) {
-      return const SizedBox(
-        height: 220,
-        child: Center(child: CircularProgressIndicator()),
-      );
-    }
+                // Topics preview
+                FutureBuilder<List<Topic>>(
+                  future: db.getAllTopics(),
+                  builder: (context, snapshot) {
+                    final isLoading = snapshot.connectionState == ConnectionState.waiting;
+                    final hasError  = snapshot.hasError;
+                    final topics    = snapshot.data ?? const <Topic>[];
 
-    if (hasError) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Text('Failed to load topics: ${snapshot.error}',
-          style: const TextStyle(color: Colors.red)),
-      );
-    }
+                    if (isLoading) {
+                      return const SizedBox(
+                        height: 220,
+                        child: Center(child: CircularProgressIndicator()),
+                      );
+                    }
 
-    if (topics.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.symmetric(vertical: 12),
-        child: Text('No topics yet.'),
-      );
-    }
+                    if (hasError) {
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        child: Text(
+                          'Failed to load topics.',
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      );
+                    }
 
-    return TopicsGrid(
-      limit: 4,
-      scrollable: false,
-      db: db,
-      topics: topics,
-    );
-  },
-),
-// ...
-                
-                Align(
+                    if (topics.isEmpty) {
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        child: Text('No topics yet.'),
+                      );
+                    }
+
+                    return TopicsGrid(
+                      limit: 4,
+                      scrollable: false,
+                      db: db,           // keep passing while TopicsGrid/Details expect it
+                      topics: topics,
+                    );
+                  },
+                ),
+
+                const Align(
                   alignment: Alignment.centerLeft,
-                    child: Text('Improvement Area',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  child: Text(
+                    'Improvement Area',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
-                SizedBox(height: 8,),
-                QuizTimeCard()
-                    
+                ),
+                const SizedBox(height: 8),
+                const QuizTimeCard(),
               ],
             ),
           ),

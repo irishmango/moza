@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart'; // 👈 add this
 import 'package:moza/src/features/auth/presentation/widgets/sign_in_button.dart';
 import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/theme.dart';
 
 class LoginCard extends StatefulWidget {
-  final AuthRepository auth;
-  const LoginCard(this.auth, {super.key});
+  const LoginCard({super.key}); // 👈 no more auth in ctor
 
   @override
   State<LoginCard> createState() => _LoginCardState();
@@ -27,6 +27,9 @@ class _LoginCardState extends State<LoginCard> {
 
   @override
   Widget build(BuildContext context) {
+    // Grab auth from Provider
+    final auth = context.read<AuthRepository>();
+
     return Column(
       children: [
         Stack(
@@ -65,7 +68,12 @@ class _LoginCardState extends State<LoginCard> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(left: 16, top: 14),
                         hintText: "Enter Your Email",
-                        hintStyle: GoogleFonts.nunito(textStyle: TextStyle(color: Colors.grey.withAlpha(100), fontSize: 16)),
+                        hintStyle: GoogleFonts.nunito(
+                          textStyle: TextStyle(
+                            color: Colors.grey.withAlpha(100),
+                            fontSize: 16,
+                          ),
+                        ),
                         filled: true,
                         fillColor: AppColors.appWhite,
                         border: OutlineInputBorder(
@@ -96,7 +104,10 @@ class _LoginCardState extends State<LoginCard> {
                           borderSide: BorderSide.none,
                         ),
                         suffixIcon: IconButton(
-                          icon: Icon(isObscured ? Icons.visibility_off : Icons.visibility, color: Colors.grey),
+                          icon: Icon(
+                            isObscured ? Icons.visibility_off : Icons.visibility,
+                            color: Colors.grey,
+                          ),
                           onPressed: () {
                             setState(() {
                               isObscured = !isObscured;
@@ -114,7 +125,6 @@ class _LoginCardState extends State<LoginCard> {
         const SizedBox(height: 25),
         Center(
           child: SignInButton(
-            widget.auth,
             emailController: _emailController,
             passwordController: _passwordController,
           ),

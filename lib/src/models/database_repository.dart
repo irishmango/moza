@@ -37,6 +37,5 @@ abstract class DatabaseRepository {
   // Get quiz results for a specific user
   Future<List<QuizResult>> getUserQuizResults(String userId);
 
-  Future<void> migrateLessonBlocks(String lessonId);
 }
 

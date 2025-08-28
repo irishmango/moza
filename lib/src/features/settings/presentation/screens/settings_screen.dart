@@ -237,7 +237,7 @@ class SettingsScreen extends StatelessWidget {
                       await FirebaseAuth.instance.signOut();
                       Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (_) => LoginScreen(auth)),
+                            MaterialPageRoute(builder: (_) => LoginScreen()),
                           );
                     },
                     style: ElevatedButton.styleFrom(

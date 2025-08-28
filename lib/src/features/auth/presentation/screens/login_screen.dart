@@ -20,7 +20,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    // Pull these from Provider
     final auth = context.read<AuthRepository>();
     final db   = context.read<DatabaseRepository>();
 
@@ -42,7 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 12),
 
-            // If LoginCard needs AuthRepository, pass the provided instance in
             LoginCard(),
 
             const SizedBox(height: 25),
@@ -63,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             Center(
               child: Column(
+                spacing: 8,
                 children: [
                   ThirdPartyLoginButton(
                     icon: FontAwesomeIcons.google,
@@ -70,7 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () async {
                       try {
                         await auth.signInWithGoogle();
-                        // If Dashboard reads from Provider, you can navigate with const Dashboard()
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (_) => Dashboard()),

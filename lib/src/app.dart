@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moza/main.dart';
 import 'package:moza/src/features/auth/presentation/screens/login_screen.dart';
 import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/models/database_repository.dart';

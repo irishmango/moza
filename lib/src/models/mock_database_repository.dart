@@ -13,7 +13,6 @@ class MockDatabaseRepository implements DatabaseRepository {
 
   @override
   Future<void> addUser(AppUser user) async {
-    await Future.delayed(Duration(seconds: 2));
     users.add(user);
   }
   
@@ -21,19 +20,16 @@ class MockDatabaseRepository implements DatabaseRepository {
   
   @override
   Future<List<Topic>> getAllTopics() async {
-    await Future.delayed(Duration(seconds: 2));
     return topics;
   }
 
   @override
   Future<List<Chapter>> getChapters(String topicId) async {
-    await Future.delayed(Duration(seconds: 2));
     return topics.firstWhere((t) => t.id == topicId, orElse: () => Topic(id: '', title: '', chapters: [])).chapters;
   }
 
   @override
   Future<List<Lesson>> getLessons(String chapterId) async {
-    await Future.delayed(Duration(seconds: 2));
     for (Topic topic in topics) {
       for (Chapter chapter in topic.chapters) {
         if (chapter.id == chapterId) {
@@ -46,7 +42,6 @@ class MockDatabaseRepository implements DatabaseRepository {
 
   @override
   Future<List<Quiz>> getQuizzes(String chapterId) async {
-    await Future.delayed(Duration(seconds: 2));
     for (Topic topic in topics) {
       for (Chapter chapter in topic.chapters) {
         if (chapter.id == chapterId) {
@@ -59,7 +54,6 @@ class MockDatabaseRepository implements DatabaseRepository {
 
   @override
   Future<Quiz> getQuiz(String quizId) async {
-    await Future.delayed(const Duration(seconds: 2)); 
 
     for (Topic topic in topics) {
       for (Chapter chapter in topic.chapters) {
@@ -76,7 +70,6 @@ class MockDatabaseRepository implements DatabaseRepository {
 
   @override
   Future<List<LessonContent>> getLessonContent(String lessonId) async {
-    await Future.delayed(Duration(seconds: 2));
     for (Topic topic in topics) {
       for (Chapter chapter in topic.chapters) {
         for (Lesson lesson in chapter.lessons) {
@@ -91,7 +84,6 @@ class MockDatabaseRepository implements DatabaseRepository {
 
     @override
   Future<List<Quiz>> getAllQuizzes() async {
-    await Future.delayed(Duration(seconds: 2));
     return topics
         .expand((topic) => topic.chapters)
         .expand((chapter) => chapter.quizzes)
@@ -100,13 +92,11 @@ class MockDatabaseRepository implements DatabaseRepository {
 
   @override
   Future<void> saveQuizResult(QuizResult result) async {
-    await Future.delayed(Duration(seconds: 2));
     quizResults.add(result);
   }
 
   @override
   Future<List<QuizResult>> getUserQuizResults(String userId) async {
-    await Future.delayed(Duration(seconds: 2));
     return quizResults.where((result) => result.userId == userId).toList();
   }
 

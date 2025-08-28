@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/lessons/domain/lesson.dart';
-import 'package:moza/src/features/lessons/presentation/screens/lesson_screen.dart';
+import 'package:moza/src/features/lessons/presentation/screens/lesson_title_screen.dart';
 import 'package:moza/src/features/topics/presentation/widgets/topic_tile.dart';
 import 'package:moza/src/models/database_repository.dart';
 
@@ -32,9 +32,8 @@ class LessonsGrid extends StatelessWidget {
         return TopicTile(
           title: lesson.title,
           color: const Color(0xFFE5EDFF),
-          path: () => LessonScreen(
-            lessonId: lesson.id,
-            db: db,
+          path: () => LessonTitleScreen(
+
           ),
         );
       },

@@ -8,6 +8,7 @@ import 'package:moza/src/shared/custom_scaffold.dart';
 import 'package:moza/src/shared/header_expand.dart';
 import 'package:moza/src/features/topics/presentation/screens/topics_screen.dart';
 import 'package:moza/src/features/topics/presentation/widgets/topics_grid.dart';
+import 'package:moza/src/features/topics/domain/topic.dart';
 
 class Dashboard extends StatelessWidget {
   final DatabaseRepository db;
@@ -36,9 +37,47 @@ class Dashboard extends StatelessWidget {
                 LearnPathCard(),
                 SizedBox(height: 20,),
             
-                HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
-            
-                TopicsGrid(limit: 4, scrollable: false, db: db,),
+                // ...
+HeaderExpand(title: "Topics to learn", path: TopicsScreen(db: db,)),
+
+FutureBuilder<List<Topic>>(
+  future: db.getAllTopics(), 
+  builder: (context, snapshot) {
+    final isLoading = snapshot.connectionState == ConnectionState.waiting;
+    final hasError  = snapshot.hasError;
+    final topics    = snapshot.data ?? const <Topic>[];
+
+    if (isLoading) {
+      return const SizedBox(
+        height: 220,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    if (hasError) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Text('Failed to load topics: ${snapshot.error}',
+          style: const TextStyle(color: Colors.red)),
+      );
+    }
+
+    if (topics.isEmpty) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 12),
+        child: Text('No topics yet.'),
+      );
+    }
+
+    return TopicsGrid(
+      limit: 4,
+      scrollable: false,
+      db: db,
+      topics: topics,
+    );
+  },
+),
+// ...
                 
                 Align(
                   alignment: Alignment.centerLeft,

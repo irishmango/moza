@@ -7,14 +7,17 @@ import 'package:moza/src/features/quiz/presentation/widgets/quiz_choice_button.d
 import 'package:moza/src/features/quiz/presentation/widgets/quiz_main_button.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/shared/custom_scaffold_quiz.dart';
+import 'package:provider/provider.dart';
 
 class QuizScreen extends StatefulWidget {
+  final String topicId;
+  final String chapterId;
   final String quizId;
-  final DatabaseRepository db;
 
   const QuizScreen({
+    required this.topicId,
+    required this.chapterId,
     required this.quizId,
-    required this.db,
     super.key,
   });
 
@@ -23,6 +26,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
+  late DatabaseRepository _db;
   late Future<Quiz> _quizFuture;
 
   int currentQuestionIndex = 0;
@@ -37,7 +41,12 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
-    _quizFuture = widget.db.getQuiz(widget.quizId);
+    _db = context.read<DatabaseRepository>();
+    _quizFuture = _db.getQuiz(
+      widget.topicId,
+      widget.chapterId,
+      widget.quizId,
+    );
     _startTimer();
   }
 
@@ -90,7 +99,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          const SizedBox(height: 60),
+                          const SizedBox(height: 40),
                           Text(
                             currentQuestion.question,
                             style: const TextStyle(fontSize: 20),
@@ -102,7 +111,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               width: 200,
                               child: Image.asset(currentQuestion.imagePath!),
                             ),
-                          const SizedBox(height: 40),
+                          const SizedBox(height: 20),
                           ...List.generate(currentQuestion.options.length, (index) {
                             final isSelected = selectedIndex == index;
                             final isCorrect = currentQuestion.correctAnswerIndex == index;
@@ -154,7 +163,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                                 elapsedTime: _elapsedSeconds,
                                                 result: result,
                                                 total: quiz.questions.length,
-                                                db: widget.db,
+                                                topicId: widget.topicId,
+                                                chapterId: widget.chapterId,
                                               ),
                                             ),
                                           );

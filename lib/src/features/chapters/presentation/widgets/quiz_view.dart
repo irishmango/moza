@@ -6,13 +6,15 @@ import 'package:moza/src/models/database_repository.dart';
 
 class QuizView extends StatelessWidget {
   final List<Quiz> quizzes;
-  final DatabaseRepository db; 
+  final String topicId;
+  final String chapterId;
 
   const QuizView({
     required this.quizzes,
-    required this.db,
-    super.key, 
-    });
+    required this.topicId,
+    required this.chapterId,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,23 +22,23 @@ class QuizView extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-       
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text("Quizzes", style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+            children: const [
+              Text(
+                "Quizzes",
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-          
-          
-          Expanded(child: QuizList(quizzes: quizzes, db: db))
-        
-
-
+          Expanded(child: QuizList(
+            quizzes: quizzes,
+            topicId: topicId,
+            chapterId: chapterId,
+          )),
         ],
       ),
     );

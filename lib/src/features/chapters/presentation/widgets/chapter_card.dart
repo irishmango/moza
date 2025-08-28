@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moza/src/features/chapters/domain/chapter.dart';
+import 'package:moza/src/shared/learn_path_provider.dart';
 import 'package:moza/src/shared/open_card_button.dart';
 import 'package:moza/theme.dart';
+import 'package:provider/provider.dart';
 
 class ChapterCard extends StatelessWidget {
   final Chapter chapter;
@@ -62,6 +64,10 @@ class ChapterCard extends StatelessWidget {
                 OpenCardButton(
                   color: buttonColor,
                   onPressed: () {
+                    // SAVE the tapped chapter title
+                    context.read<LearnPath>().setChapterTitle(chapter.title);
+
+                    // your existing behavior
                     method();
                     Navigator.push(
                       context,
@@ -73,14 +79,6 @@ class ChapterCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              "Duration: ${chapter.lessons.length} Lessons",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: AppColors.textColor,
-              ),
-            ),
-            Text(
               "${chapter.lessons.length} Lessons",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -88,6 +86,7 @@ class ChapterCard extends StatelessWidget {
                 color: AppColors.textColor,
               ),
             ),
+            const SizedBox(height: 8),
             Text(
               chapter.description,
               style: TextStyle(

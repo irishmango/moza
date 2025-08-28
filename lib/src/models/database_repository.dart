@@ -20,8 +20,7 @@ abstract class DatabaseRepository {
   Future<List<Lesson>> getLessons(String topicId, String chapterId);
 
   // Get quizzes within a specific chapter
-  Future<List<Quiz>> getQuizzes(String chapterId);
-
+Future<List<Quiz>> getQuizzes(String topicId, String chapterId);
   // Get content for a specific lesson
   Future<List<LessonContent>> getLessonContent(String lessonId);
 
@@ -29,7 +28,7 @@ abstract class DatabaseRepository {
   Future<List<Quiz>> getAllQuizzes();
 
   // Get singular quiz
-  Future<Quiz> getQuiz(String quizId);
+  Future<Quiz> getQuiz(String topicId, String chapterId, String quizId);
 
   // Save quiz results
   Future<void> saveQuizResult(QuizResult result);
@@ -37,5 +36,7 @@ abstract class DatabaseRepository {
   // Get quiz results for a specific user
   Future<List<QuizResult>> getUserQuizResults(String userId);
 
+
+  Future<Chapter?> getChapterByTitle(String topicId, String chapterTitle);
 }
 

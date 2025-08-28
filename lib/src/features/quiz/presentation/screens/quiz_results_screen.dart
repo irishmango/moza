@@ -5,21 +5,22 @@ import 'package:moza/src/features/quiz/presentation/screens/quiz_screen.dart';
 import 'package:moza/src/features/quiz/presentation/widgets/quiz_main_button.dart';
 import 'package:moza/src/shared/custom_scaffold_quiz.dart';
 import 'package:moza/theme.dart';
-import 'package:moza/src/models/database_repository.dart';
 
 class QuizResultsScreen extends StatelessWidget {
   final int result;
   final int total;
   final Quiz quiz;
   final int elapsedTime;
-  final DatabaseRepository db;  
+  final String topicId;
+  final String chapterId;
 
   const QuizResultsScreen({
     required this.result,
     required this.total,
     required this.quiz,
     required this.elapsedTime,
-    required this.db,  
+    required this.topicId,
+    required this.chapterId,
     super.key,
   });
 
@@ -94,13 +95,18 @@ class QuizResultsScreen extends StatelessWidget {
               children: [
                 QuizMainButton(
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => QuizScreen(quizId: quiz.id, db: db),
-                      ),
-                      (route) => false,
-                    );
+                    Navigator.of(context).pop();
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (_) => QuizScreen(
+                            topicId: topicId,
+                            chapterId: chapterId,
+                            quizId: quiz.id,
+                          ),
+                        ),
+                      );
+                    });
                   },
                   hasChecked: false,
                   text: "Restart Quiz",
@@ -108,8 +114,12 @@ class QuizResultsScreen extends StatelessWidget {
                 const SizedBox(width: 16),
                 QuizMainButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (ctx) => const ComingSoon()));
+                    Navigator.of(context).pop();
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      if (Navigator.of(context).canPop()) {
+                        Navigator.of(context).pop();
+                      }
+                    });
                   },
                   hasChecked: false,
                   text: "Finish",

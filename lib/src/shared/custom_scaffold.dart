@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:moza/src/shared/general_background.dart';
 
@@ -24,7 +25,13 @@ class CustomScaffold extends StatelessWidget {
       body: Stack(
         children: [
           const GeneralBackground(),
-          if (body != null) body!,
+          if (body != null)
+            Padding(
+              padding: kIsWeb
+                  ? const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0) // for web!!
+                  : EdgeInsets.zero,
+              child: body!,
+            ),
         ],
       ),
     );

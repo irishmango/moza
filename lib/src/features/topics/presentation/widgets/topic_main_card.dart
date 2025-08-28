@@ -10,7 +10,6 @@ class TopicMainCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 194,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
@@ -29,10 +28,11 @@ class TopicMainCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          spacing: 12,
           children: [
             // Title Row
             Row(
@@ -50,6 +50,17 @@ class TopicMainCard extends StatelessWidget {
                 ),
               ],
             ),
+            Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  topic.description,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
 
             Row(
               children: [
@@ -88,12 +99,11 @@ class TopicMainCard extends StatelessWidget {
     );
   }
 
-// Calculate the total duration of all lessons in the topic
 String _calculateTotalDuration() {
   int totalMinutes = 0;
 
   for (var chapter in topic.chapters) {
-    totalMinutes += chapter.lessons.length * 15; // Assume each lesson is 15 mins
+    totalMinutes += chapter.lessons.length * 15; 
   }
 
   int hours = totalMinutes ~/ 60;

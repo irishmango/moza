@@ -61,27 +61,29 @@ class QuizChoiceButton extends StatelessWidget {
       textColor = Colors.white;
     }
 
-    return Container(
-      width: 320,
-      height: 60,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(24),
-        border: Border(
-          left: BorderSide(color: borderColor, width: 1),
-          top: BorderSide(color: borderColor, width: 1),
-          right: BorderSide(color: borderColor, width: 1),
-          bottom: BorderSide(color: borderColor, width: 4),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        width: 320,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(24),
+          border: Border(
+            left: BorderSide(color: borderColor, width: 1),
+            top: BorderSide(color: borderColor, width: 1),
+            right: BorderSide(color: borderColor, width: 1),
+            bottom: BorderSide(color: borderColor, width: 4),
+          ),
         ),
-      ),
-      child: TextButton(
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+        child: TextButton(
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: textColor,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

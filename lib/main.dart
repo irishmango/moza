@@ -6,25 +6,27 @@ import 'package:moza/src/models/auth_repository.dart';
 import 'package:moza/src/models/database_repository.dart';
 import 'package:moza/src/models/firebase_auth_repository.dart';
 import 'package:moza/src/models/firestore_repository.dart';
-import 'package:moza/src/models/mock_database_repository.dart';
-import 'package:moza/src/shared/custom_scaffold.dart';
+import 'package:moza/src/shared/learn_path_provider.dart';
 import 'firebase_options.dart';
-import 'package:provider/provider.dart'; 
+import 'package:provider/provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   final DatabaseRepository db = FirestoreRepository();
   final AuthRepository auth = FirebaseAuthRepository();
-  
+
   runApp(
     MultiProvider(
       providers: [
         Provider<DatabaseRepository>.value(value: db),
         Provider<AuthRepository>.value(value: auth),
+
+        // ADD THIS:
+        ChangeNotifierProvider<LearnPath>(create: (_) => LearnPath()),
       ],
       child: App(),
     ),
@@ -34,7 +36,7 @@ void main() async {
 class Sandbox extends StatelessWidget {
   const Sandbox({super.key});
 
-  // migration code. PLEASE WORK
+  // migration code. PLEASE WORK :( )
   static const String kTopicsCol = 'topics';
   static const String kMiddleSub = 'chapters';   // correct middle level
   static const String kWrongDeep = 'chapters';   // WRONG deepest name
@@ -77,7 +79,7 @@ class Sandbox extends StatelessWidget {
         }
         if (ops > 0) await batch.commit();
 
-        // Copy specified subcollections ( 'blocks')
+        // Copy specified subcollections ('blocks')
         for (final doc in wrongSnap.docs) {
           final srcDoc = doc.reference;
           final dstDoc = rightRef.doc(doc.id);

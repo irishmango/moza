@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moza/main.dart';
 import 'package:moza/src/features/auth/presentation/screens/login_screen.dart';
-import 'package:moza/src/models/auth_repository.dart';
-import 'package:moza/src/models/database_repository.dart';
-import 'package:moza/src/models/firebase_auth_repository.dart';
 import 'package:moza/theme.dart';
+import 'package:moza/src/features/chapters/presentation/screens/chapter_screen.dart';
 
 
 class App extends StatelessWidget {

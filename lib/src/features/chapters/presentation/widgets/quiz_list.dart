@@ -6,11 +6,13 @@ import 'package:moza/src/models/database_repository.dart';
 
 class QuizList extends StatelessWidget {
   final List<Quiz> quizzes;
-  final DatabaseRepository db; 
+  final String topicId;
+  final String chapterId;
 
   const QuizList({
     required this.quizzes,
-    required this.db,
+    required this.topicId,
+    required this.chapterId,
     super.key,
   });
 
@@ -21,10 +23,13 @@ class QuizList extends StatelessWidget {
       itemCount: quizzes.length,
       itemBuilder: (context, index) {
         final quiz = quizzes[index];
-
         return Padding(
           padding: const EdgeInsets.only(bottom: 8),
-          child: QuizTile(quiz: quiz, db: db),
+          child: QuizTile(
+            quiz: quiz,
+            topicId: topicId,
+            chapterId: chapterId,
+          ),
         );
       },
     );
@@ -33,22 +38,23 @@ class QuizList extends StatelessWidget {
 
 class QuizTile extends StatelessWidget {
   final Quiz quiz;
-  final DatabaseRepository db;  
-
-  const QuizTile({
-    super.key,
-    required this.quiz,
-    required this.db,
-  });
+  final String topicId;
+  final String chapterId;
+  const QuizTile({super.key, required this.quiz, required this.topicId, required this.chapterId});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(24),
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (ctx) => QuizScreen(quizId: quiz.id, db: db),
+            builder: (_) => QuizScreen(
+              topicId: topicId,
+              chapterId: chapterId,
+              quizId: quiz.id,
+            ),
           ),
         );
       },

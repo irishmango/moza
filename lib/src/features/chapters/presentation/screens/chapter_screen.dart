@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moza/src/features/quiz/domain/quiz.dart';
 import 'package:provider/provider.dart';                       // 👈 new
 import 'package:moza/src/features/chapters/domain/chapter.dart';
 import 'package:moza/src/features/chapters/presentation/widgets/chapter_title_card.dart';
@@ -69,7 +70,26 @@ class _ChapterScreenState extends State<ChapterScreen> {
                           return LessonView(lessons: lessons);
                         },
                       )
-                    : QuizView(quizzes: quizzes, db: db),
+                    : FutureBuilder<List<Quiz>>(
+                        future: db.getQuizzes(widget.topicId, chapter.id),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.waiting) {
+                            return const Center(child: CircularProgressIndicator());
+                          }
+                          if (snapshot.hasError) {
+                            return Center(child: Text('Failed to load quizzes: \\${snapshot.error}'));
+                          }
+                          final quizzes = snapshot.data ?? const <Quiz>[];
+                          if (quizzes.isEmpty) {
+                            return const Center(child: Text('No quizzes yet.'));
+                          }
+                          return QuizView(
+                            quizzes: quizzes,
+                            topicId: widget.topicId,
+                            chapterId: chapter.id,
+                          );
+                        },
+                      )
               ),
             ],
           ),

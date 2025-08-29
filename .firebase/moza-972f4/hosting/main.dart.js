@@ -49984,7 +49984,7 @@ s=A.ayu(a)
 r=t.w
 q=A.bP(a,B.iG,r).w
 p=s.Q
-if(p==null)p=B.Gq
+if(p==null)p=B.Gp
 o=q.f.Y(0,p)
 n=A.aGH(a)
 q=s.f
@@ -88472,7 +88472,7 @@ s=b.c
 if(s!=null)return A.dg(A.aJ("Failed to load lessons: "+A.k(s),q,q,q,q,q,q),q,q)
 r=b.b
 if(r==null)r=B.JZ
-if(J.hO(r))return B.CT
+if(J.hO(r))return B.CS
 return new A.NF(r,q)},
 $S:559}
 A.anE.prototype={
@@ -88482,7 +88482,7 @@ s=b.c
 if(s!=null)return A.dg(A.aJ("Failed to load quizzes: \\"+A.k(s),q,q,q,q,q,q),q,q)
 r=b.b
 if(r==null)r=B.ox
-if(J.hO(r))return B.CU
+if(J.hO(r))return B.CT
 return new A.Pb(r,this.a.a.d,this.b.a,q)},
 $S:560}
 A.KM.prototype={
@@ -88577,7 +88577,7 @@ $1(a){return new A.vn(this.a,null)},
 $S:566}
 A.ND.prototype={
 G(a){var s=null,r=A.ex(a,!0,t.t2).a,q=r!=null&&r.length!==0,p=A.b([new A.cd(0,B.aw,A.ae(50,B.j.u()>>>16&255,B.j.u()>>>8&255,B.j.u()&255),B.f4,4)],t.E),o=t.p,n=A.dk(A.b([B.Xt,B.ll,new A.C4(B.Ey,new A.a9Q(q,a),s)],o),B.y,B.x,B.v,0),m=A.cj(20),l=A.aJ(q?"Continue with...":"Continue with\u2026",s,s,s,B.UH,s,s)
-return A.bW(s,new A.aZ(B.h4,A.bR(A.b([n,B.ll,A.f1(s,A.bW(s,A.dk(A.b([A.fi(A.bR(A.b([l,A.aJ(q?r:"Get started!",1,B.aW,s,B.Sw,s,s)],o),B.aq,B.x,B.v,0),1),A.b7(A.dE(B.B,A.b([A.b7(new A.tK(5,B.fl,0.6,B.C,s,new A.yk($.eW(),t.VA),s,s,s),50,50),B.CQ],o),B.w,B.ar),50,50)],o),B.y,B.x,B.v,0),B.t,s,s,new A.by(B.EA,s,s,m,s,s,B.O),s,s,s,B.Gb,s,s,s),B.R,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.a9R(q,a),s,s,s,s,s,s,s,s,s,s,s)],o),B.aq,B.x,B.v,0),s),B.t,s,s,new A.by(s,s,s,B.dt,p,B.om,B.O),s,194,s,s,s,s,1/0)}}
+return A.bW(s,new A.aZ(B.h4,A.bR(A.b([n,B.ll,A.f1(s,A.bW(s,A.dk(A.b([A.fi(A.bR(A.b([l,A.aJ(q?r:"Get started!",1,B.aW,s,B.Sw,s,s)],o),B.aq,B.x,B.v,0),1),A.b7(A.dE(B.B,A.b([A.b7(new A.tK(5,B.fl,0.1,B.C,s,new A.yk($.eW(),t.VA),s,s,s),50,50),B.CV],o),B.w,B.ar),50,50)],o),B.y,B.x,B.v,0),B.t,s,s,new A.by(B.EA,s,s,m,s,s,B.O),s,s,s,B.Gb,s,s,s),B.R,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.a9R(q,a),s,s,s,s,s,s,s,s,s,s,s)],o),B.aq,B.x,B.v,0),s),B.t,s,s,new A.by(s,s,s,B.dt,p,B.om,B.O),s,194,s,s,s,s,1/0)}}
 A.a9Q.prototype={
 $0(){if(!this.a)this.b.ad(t.R).f.hL(B.zT)},
 $S:0}
@@ -88600,13 +88600,13 @@ G(a){var s,r,q=null,p=$.eW(),o=A.aJ("Since the Renaissance, intervals have been 
 m=A.o2(q,q,q,B.aV,q,q,!0,q,A.c1(A.b([B.So,A.c1(q,q,"The fourth occupies a special position among intervals. It can be considered consonant or dissonant depending on how it is delivered. Often the fourth is found as a suspension in the final position, or as a result of voice leading. As a harmonic interval, the fourth is usually dissonant in the Renaissance. In vocal writing, the fourth is allowed under certain conditions.\n")],m),B.ip,q),B.aa,q,q,B.a5,B.ad)
 s=A.cj(8)
 r=t.p
-return A.azz(new A.yC(B.Ae,0,p,B.oc,new A.Ww(q,q,1/0,56),q),B.n3,A.bR(A.b([A.fi(A.vU(A.bR(A.b([o,B.bT,n,B.aE,l,B.aE,k,B.aE,j,B.aE,m,B.aE,A.bW(q,A.iR("assets/img/intervals/intervals_1.png",B.B,q,B.By,q,q),B.c5,q,q,new A.by(B.fM,q,q,s,q,q,B.O),q,60,B.nz,q,q,q,1/0),B.aE,A.aJ("Table: Interval Classes and their auditory behaviors",q,q,q,A.bl(q,q,B.W,q,q,q,q,q,q,q,q,12,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.bT,A.aJ("Recap - Simple Intervals (Basic Forms)",q,q,q,A.bl(q,q,$.eW(),q,q,q,q,q,q,q,q,16,q,q,B.L,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("It would be convenient that the other basic qualities all start on the same foundation.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("The more an interval is divided from Latin ordinal numbers (1st, 2nd, etc.), the more dissonant it is.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("The interval of seventh (7th) is an exception in that context. There is a succession by perfect intervals, in these basic forms. The distance of 5 semitones is referred to as tritone.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.bW(q,B.CR,B.t,B.fM,q,q,q,120,B.nz,q,q,q,1/0),new A.de(B.iV,q,q,new A.Mg(new A.a9S(a),q,q,q,A.aOC($.eW(),q,q),B.t,q,!1,q,!0,q,B.Xl,q),q)],r),B.aq,B.x,B.v,0),B.Gn),1)],r),B.y,B.x,B.v,0),q,q)}}
+return A.azz(new A.yC(B.Ae,0,p,B.oc,new A.Ww(q,q,1/0,56),q),B.n3,A.bR(A.b([A.fi(A.vU(A.bR(A.b([o,B.bT,n,B.aE,l,B.aE,k,B.aE,j,B.aE,m,B.aE,A.bW(q,A.iR("assets/img/intervals/intervals_1.png",B.B,q,B.By,q,q),B.c5,q,q,new A.by(B.fM,q,q,s,q,q,B.O),q,60,B.nz,q,q,q,1/0),B.aE,A.aJ("Table: Interval Classes and their auditory behaviors",q,q,q,A.bl(q,q,B.W,q,q,q,q,q,q,q,q,12,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.bT,A.aJ("Recap - Simple Intervals (Basic Forms)",q,q,q,A.bl(q,q,$.eW(),q,q,q,q,q,q,q,q,16,q,q,B.L,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("It would be convenient that the other basic qualities all start on the same foundation.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("The more an interval is divided from Latin ordinal numbers (1st, 2nd, etc.), the more dissonant it is.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.aJ("The interval of seventh (7th) is an exception in that context. There is a succession by perfect intervals, in these basic forms. The distance of 5 semitones is referred to as tritone.",q,q,q,A.bl(q,q,B.j,q,q,q,q,q,q,q,q,15,q,q,q,q,q,!0,q,q,q,q,q,q,q,q),q,q),B.aE,A.bW(q,B.CQ,B.t,B.fM,q,q,q,120,B.nz,q,q,q,1/0),new A.de(B.iV,q,q,new A.Mg(new A.a9S(a),q,q,q,A.aOC($.eW(),q,q),B.t,q,!1,q,!0,q,B.Xl,q),q)],r),B.aq,B.x,B.v,0),B.Gn),1)],r),B.y,B.x,B.v,0),q,q)}}
 A.a9S.prototype={
 $0(){A.ci(this.a,!1).jF(null)},
 $S:0}
 A.uS.prototype={
 G(a){var s=null,r=$.eW(),q=t.p,p=t.t
-return A.jP(A.bW(s,new A.aZ(B.ca,new A.aZ(B.Gk,A.bR(A.b([B.aE,A.bR(A.b([B.X7,B.nq,A.bR(A.b([B.Ae,B.WZ],q),B.aq,B.x,B.v,8),B.nq],q),B.aq,B.x,B.v,12),B.Rc,A.dk(A.b([new A.rS(A.b([1,3],p),s),B.zJ,new A.rS(A.b([2,4],p),s)],q),B.y,B.cg,B.v,0),B.zL,A.dk(A.b([new A.rS(A.b([2,1,3],p),s),B.zJ,new A.rS(A.b([1,4,2],p),s)],q),B.y,B.cg,B.v,0),B.ll,A.dk(A.b([new A.Ox(new A.a9U(a),s,s,s,A.aQr(s,s,s,s,s,s,s,s,s,B.k,s,s,B.nC,s,new A.cC(A.cj(24),B.u),B.Bn,s,s,s,s),s,s,!1,s,!0,s,B.Xf,s),A.ug(B.HC,new A.a9V(a),A.zX(s,s,B.k,s,s,s,s,s,s,$.eW(),s,s,B.nC,s,new A.cC(A.cj(24),B.u),s,s,s,s,s))],q),B.y,B.da,B.v,0),B.aE],q),B.aq,B.x,B.v,0),s),s),B.t,r,s,s,s,s,s,s,s,s,1/0))}}
+return A.jP(A.bW(s,new A.aZ(B.ca,new A.aZ(B.Gk,A.bR(A.b([B.aE,A.bR(A.b([B.X8,B.nq,A.bR(A.b([B.Ae,B.WZ],q),B.aq,B.x,B.v,8),B.nq],q),B.aq,B.x,B.v,12),B.Rc,A.dk(A.b([new A.rS(A.b([1,3],p),s),B.zJ,new A.rS(A.b([2,4],p),s)],q),B.y,B.cg,B.v,0),B.zL,A.dk(A.b([new A.rS(A.b([2,1,3],p),s),B.zJ,new A.rS(A.b([1,4,2],p),s)],q),B.y,B.cg,B.v,0),B.ll,A.dk(A.b([new A.Ox(new A.a9U(a),s,s,s,A.aQr(s,s,s,s,s,s,s,s,s,B.k,s,s,B.nC,s,new A.cC(A.cj(24),B.u),B.Bn,s,s,s,s),s,s,!1,s,!0,s,B.Xf,s),A.ug(B.HC,new A.a9V(a),A.zX(s,s,B.k,s,s,s,s,s,s,$.eW(),s,s,B.nC,s,new A.cC(A.cj(24),B.u),s,s,s,s,s))],q),B.y,B.da,B.v,0),B.aE],q),B.aq,B.x,B.v,0),s),s),B.t,r,s,s,s,s,s,s,s,s,1/0))}}
 A.a9U.prototype={
 $0(){A.ci(this.a,!1).jF(null)},
 $S:0}
@@ -88688,7 +88688,7 @@ r=$.aBk()
 r=A.a1A(A.ae(50,r.u()>>>16&255,r.u()>>>8&255,r.u()&255),2)
 q=t.p
 p=o.f
-return A.aCQ(A.fY(!0,A.bR(A.b([m,B.li,A.bW(n,A.bR(A.b([A.dg(A.aJ("Finished!",n,n,n,A.bl(n,n,$.JG(),n,n,n,n,n,n,n,n,22,n,n,B.L,n,n,!0,n,n,n,n,n,n,n,n),n,n),n,n),B.ij,A.dk(A.b([B.X5,A.aJ(""+o.c+" / "+o.d,n,n,n,B.lw,n,n)],q),B.y,B.da,B.v,0),A.dk(A.b([B.Xs,A.aJ(B.c.od(B.f.k(B.f.cV(p,60)),2,"0")+":"+B.c.od(B.f.k(B.f.bh(p,60)),2,"0"),n,n,n,B.e4,n,n)],q),B.y,B.da,B.v,0),A.dk(A.b([B.Xc,B.WU],q),B.y,B.da,B.v,0)],q),B.aq,B.x,B.v,0),B.t,n,n,new A.by(k,n,r,s,n,n,B.O),n,n,n,B.nB,n,n,l.a.a*0.8),B.bT,A.dk(A.b([new A.vq(new A.afg(o,a),!1,"Restart Quiz",n),B.R9,new A.vq(new A.afh(a),!1,"Finish",n)],q),B.y,B.cg,B.v,0)],q),B.y,B.cg,B.v,0),B.a8,!0))}}
+return A.aCQ(A.fY(!0,A.bR(A.b([m,B.li,A.bW(n,A.bR(A.b([A.dg(A.aJ("Finished!",n,n,n,A.bl(n,n,$.JG(),n,n,n,n,n,n,n,n,22,n,n,B.L,n,n,!0,n,n,n,n,n,n,n,n),n,n),n,n),B.ij,A.dk(A.b([B.X6,A.aJ(""+o.c+" / "+o.d,n,n,n,B.lw,n,n)],q),B.y,B.da,B.v,0),A.dk(A.b([B.Xs,A.aJ(B.c.od(B.f.k(B.f.cV(p,60)),2,"0")+":"+B.c.od(B.f.k(B.f.bh(p,60)),2,"0"),n,n,n,B.e4,n,n)],q),B.y,B.da,B.v,0),A.dk(A.b([B.Xd,B.WU],q),B.y,B.da,B.v,0)],q),B.aq,B.x,B.v,0),B.t,n,n,new A.by(k,n,r,s,n,n,B.O),n,n,n,B.nB,n,n,l.a.a*0.8),B.bT,A.dk(A.b([new A.vq(new A.afg(o,a),!1,"Restart Quiz",n),B.R9,new A.vq(new A.afh(a),!1,"Finish",n)],q),B.y,B.cg,B.v,0)],q),B.y,B.cg,B.v,0),B.a8,!0))}}
 A.afg.prototype={
 $0(){var s=this.b
 A.ci(s,!1).ew()
@@ -88743,7 +88743,7 @@ if(b.a===B.cV)return B.dz
 else{s=b.c
 if(s!=null)return A.dg(A.aJ("Error: "+A.k(s),k,k,k,k,k,k),k,k)
 else{s=b.b
-if(s==null)return B.CV}}r=s.c
+if(s==null)return B.CU}}r=s.c
 q=this.a
 p=q.f
 o=r[p]
@@ -88885,7 +88885,7 @@ B.b.S(l,k)
 s=A.aFS(l,!0,!0,!0)
 l=l.length
 l=A.b7(new A.Bh(s,p,B.aI,!1,p,p,B.m9,!0,p,l,B.R,p,p,B.w,B.av,p),p,17976931348623157e292)
-return A.aC5(A.b([A.jl(B.X8,new A.asl(a),p),A.ug(B.X2,new A.asm(o,n,b,a),p)],m),l,B.Xk)},
+return A.aC5(A.b([A.jl(B.X9,new A.asl(a),p),A.ug(B.X2,new A.asm(o,n,b,a),p)],m),l,B.Xk)},
 $S:578}
 A.asj.prototype={
 $1(a){this.c.$1(new A.asi(this.a,this.b,a))},
@@ -89099,7 +89099,7 @@ if(b.a===B.cV)return B.dz
 else{s=b.c
 if(s!=null)return A.dg(A.aJ("Error: "+A.k(s),c,c,c,c,c,c),c,c)
 else{s=b.b
-if(s==null||J.hO(s))return B.CS}}r=J.aj(s)
+if(s==null||J.hO(s))return B.CR}}r=J.aj(s)
 q=220*r.gF(s)+30*(r.gF(s)-1)
 p=this.a
 o=p.a.c
@@ -89121,7 +89121,7 @@ if(n==null)n=B.ow
 s=t.p
 r=A.b([B.P9,B.bT],s)
 if(o!=null)r.push(A.aJ("Error: "+A.k(o),q,q,q,q,q,q))
-else if(J.hO(n)&&!p)r.push(B.X6)
+else if(J.hO(n)&&!p)r.push(B.X7)
 else r.push(A.aGh(q,!0,n))
 o=A.b([A.vU(A.fY(!0,new A.aZ(B.ca,A.bR(r,B.y,B.x,B.v,0),q),B.a8,!0),q)],s)
 if(p)o.push(B.HG)
@@ -89482,7 +89482,7 @@ return new A.fX(s,J.c3(r==null?"":r),B.JY)},
 $S:593}
 A.Lt.prototype={
 G(a){var s=null,r=A.b([B.GU],t.p)
-r.push(new A.aZ(B.Gp,this.c,s))
+r.push(new A.aZ(B.Gq,this.c,s))
 return A.azz(s,s,A.dE(B.au,r,B.w,B.ar),s,s)}}
 A.Lu.prototype={
 G(a){var s=null,r=A.b([B.OF],t.p)
@@ -92871,8 +92871,8 @@ B.a_w=new A.a0u(0,"unknown")
 B.bZ=new A.dl(-1,0)
 B.L=new A.fj(6)
 B.ir=new A.m(!0,null,null,null,null,null,28,B.L,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Xd=new A.bB("Improvement Area",null,B.ir,null,null,null,null,null,null)
-B.AY=new A.de(B.bZ,null,null,B.Xd,null)
+B.Xe=new A.bB("Improvement Area",null,B.ir,null,null,null,null,null,null)
+B.AY=new A.de(B.bZ,null,null,B.Xe,null)
 B.AZ=new A.eX(0,1)
 B.B_=new A.eX(0,-1)
 B.a_x=new A.eX(1,0)
@@ -93261,24 +93261,24 @@ B.j7=new A.it(t.Wo)
 B.CL=new A.ZF()
 B.j8=new A.a1U(0,"pixel")
 B.CP=new A.yT(null,null,null,null,null,null,null)
-B.Ti=new A.m(!0,B.k,null,null,null,null,null,B.L,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.Xe=new A.bB("60%",null,B.Ti,null,null,null,null,null,null)
-B.CQ=new A.fF(B.B,null,null,B.Xe,null)
 B.a_R=new A.alU(0,"material")
 B.CZ=new A.tK(null,null,null,null,null,null,null,null,null)
 B.dz=new A.fF(B.B,null,null,B.CZ,null)
 B.W=new A.n(0.5411764705882353,0,0,0,B.e)
 B.Us=new A.m(!0,B.W,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Xr=new A.bB("Chart: Simple Intervals",null,B.Us,null,null,null,null,null,null)
-B.CR=new A.fF(B.B,null,null,B.Xr,null)
-B.X9=new A.bB("No chapters found.",null,null,null,null,null,null,null,null)
-B.CS=new A.fF(B.B,null,null,B.X9,null)
+B.CQ=new A.fF(B.B,null,null,B.Xr,null)
+B.Xa=new A.bB("No chapters found.",null,null,null,null,null,null,null,null)
+B.CR=new A.fF(B.B,null,null,B.Xa,null)
 B.Xp=new A.bB("No lessons yet.",null,null,null,null,null,null,null,null)
-B.CT=new A.fF(B.B,null,null,B.Xp,null)
-B.Xa=new A.bB("No quizzes yet.",null,null,null,null,null,null,null,null)
-B.CU=new A.fF(B.B,null,null,B.Xa,null)
+B.CS=new A.fF(B.B,null,null,B.Xp,null)
+B.Xb=new A.bB("No quizzes yet.",null,null,null,null,null,null,null,null)
+B.CT=new A.fF(B.B,null,null,B.Xb,null)
 B.X4=new A.bB("No quiz found.",null,null,null,null,null,null,null,null)
-B.CV=new A.fF(B.B,null,null,B.X4,null)
+B.CU=new A.fF(B.B,null,null,B.X4,null)
+B.Ti=new A.m(!0,B.k,null,null,null,null,null,B.L,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.X5=new A.bB("0%",null,B.Ti,null,null,null,null,null,null)
+B.CV=new A.fF(B.B,null,null,B.X5,null)
 B.CW=new A.tI(null,null,null,null,null,null,null,null,null)
 B.CX=new A.yZ(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.mI=new A.e0(0,B.u)
@@ -93607,8 +93607,8 @@ B.nC=new A.ak(20,8,20,8)
 B.Gm=new A.ak(24,0,24,24)
 B.Gn=new A.ak(24,24,24,24)
 B.Go=new A.ak(2,2,2,2)
-B.Gp=new A.ak(40,20,40,20)
-B.Gq=new A.ak(40,24,40,24)
+B.Gp=new A.ak(40,24,40,24)
+B.Gq=new A.ak(40,80,40,80)
 B.nD=new A.ak(4,0,4,0)
 B.a_H=new A.ak(4,4,4,5)
 B.Gr=new A.ak(50,14,50,14)
@@ -94005,8 +94005,8 @@ B.BH=new A.tm()
 B.fd=new A.Qc(1,"page")
 B.hX=new A.ek(B.Y,B.fd)
 B.JO=A.b(s([B.BH,B.hX]),A.ai("F<aV>"))
-B.Xb=new A.bB("Lessons",null,B.ir,null,null,null,null,null,null)
-B.JP=A.b(s([B.Xb]),t.p)
+B.Xc=new A.bB("Lessons",null,B.ir,null,null,null,null,null,null)
+B.JP=A.b(s([B.Xc]),t.p)
 B.K1=A.b(s([]),t.QP)
 B.K0=A.b(s([]),A.ai("F<iF>"))
 B.oy=A.b(s([]),A.ai("F<aZu>"))
@@ -95877,12 +95877,12 @@ B.X1=new A.bB("Are you sure you want to exit the quiz? Your progress will not be
 B.VD=new A.m(!0,B.k,null,null,null,null,20,B.L,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Ae=new A.bB("Interval Classes",null,B.VD,null,null,null,null,null,null)
 B.X2=new A.bB("Apply",null,null,null,null,null,null,null,null)
-B.X5=new A.bB("Result:",null,B.lw,null,null,null,null,null,null)
-B.X6=new A.bB("No topics found.",null,null,null,null,null,null,null,null)
+B.X6=new A.bB("Result:",null,B.lw,null,null,null,null,null,null)
+B.X7=new A.bB("No topics found.",null,null,null,null,null,null,null,null)
 B.UY=new A.m(!0,B.k,null,null,null,null,32,B.L,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.X7=new A.bB("Intervals",null,B.UY,null,null,null,null,null,null)
-B.X8=new A.bB("Cancel",null,null,null,null,null,null,null,null)
-B.Xc=new A.bB("XP Points:",null,B.e4,null,null,null,null,null,null)
+B.X8=new A.bB("Intervals",null,B.UY,null,null,null,null,null,null)
+B.X9=new A.bB("Cancel",null,null,null,null,null,null,null,null)
+B.Xd=new A.bB("XP Points:",null,B.e4,null,null,null,null,null,null)
 B.Xf=new A.bB("Home",null,null,null,null,null,null,null,null)
 B.Xg=new A.bB("Exit",null,B.Ad,null,null,null,null,null,null)
 B.Xh=new A.bB("Stay",null,null,null,null,null,null,null,null)

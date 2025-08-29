@@ -115,7 +115,7 @@ class LearnPathCard extends StatelessWidget {
                             height: 50,
                             child: CircularProgressIndicator(
                               strokeCap: StrokeCap.round,
-                              value: 0.6,
+                              value: 0.1,
                               strokeWidth: 5,
                               backgroundColor: Colors.transparent,
                               valueColor: AlwaysStoppedAnimation<Color>(AppColors.appOrange),
@@ -123,7 +123,7 @@ class LearnPathCard extends StatelessWidget {
                           ),
                           const Center(
                             child: Text(
-                              "60%",
+                              "0%",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

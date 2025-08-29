@@ -25,7 +25,7 @@ void main() async {
         Provider<DatabaseRepository>.value(value: db),
         Provider<AuthRepository>.value(value: auth),
 
-        // ADD THIS:
+        
         ChangeNotifierProvider<LearnPath>(create: (_) => LearnPath()),
       ],
       child: App(),
